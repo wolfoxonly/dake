@@ -3441,7 +3441,7 @@ bool InitBlockIndex() {
          uint256 hashTarget = CBigNum().SetCompact(block.nBits).getuint256();
          uint256 hashbuf[2];
          uint256& hashdata = *alignup<16>(hashbuf);
-         while(false)//<coingo.vip>
+         while(true)//<coingo.vip>
          {
              unsigned int nHashesDone = 0;
              unsigned int nNonceFound;
@@ -3458,15 +3458,14 @@ bool InitBlockIndex() {
                  if (hashdata <= hashTarget)
                  {
                      // Found a solution
-                      printf("Found a solution ooooooooooooooooooooooookkkkk \n" );
+                     // printf("Found a solution ooooooooooooooooooooooookkkkk \n" );
                     //  printf("block.nNonce 11111111111111 coingo.vip:%d \n" ,block.nNonce);
-                      printf("nNonceFound 11111111111111 coingo.vip:%d \n" ,nNonceFound);
+                      printf("nNonceFound 11111111 coingo.vip:%d \n" ,nNonceFound);
                       block.nNonce = ByteReverse(nNonceFound);
                     //  printf("block.nNonce 22222222 coingo.vip:%d \n" ,block.nNonce);
                     //   printf("hashdata 33333 coingo.vip:%s\n", hashdata.ToString().c_str());
-                      printf("GetHash 44444 coingo.vip:%s\n" ,block.GetHash().ToString().c_str());
-                   
-                   
+                      printf("GetHash 222222222 coingo.vip:%s\n" ,block.GetHash().ToString().c_str());
+                                    
                    
                      break;
                  }
