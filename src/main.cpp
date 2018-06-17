@@ -3495,7 +3495,7 @@ bool InitBlockIndex() {
         // ppcoin: check genesis block
         {
             CValidationState state;
-            assert(block.CheckBlock(state));
+            assert(block.CheckBlock(state));//<coingo.vip>
         }
 
         // Start new block file
