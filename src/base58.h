@@ -1,6 +1,6 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
-// Copyright (c) 2009-2012 The Dealtoken Developers
-// Copyright (c) 2011-2017 The Dealtoken developers
+// Copyright (c) 2009-2012 The DakeCoin Developers
+// Copyright (c) 2011-2017 The DakeCoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -250,25 +250,25 @@ public:
     bool operator> (const CBase58Data& b58) const { return CompareTo(b58) >  0; }
 };
 
-/** base58-encoded Dealtoken addresses.
+/** base58-encoded DakeCoin addresses.
  * ppcoin public-key-hash-addresses have version 55 (or 111 testnet).
  * The data vector contains RIPEMD160(SHA256(pubkey)), where pubkey is the serialized public key.
  * Script-hash-addresses have version 117 (or 196 testnet).
  * The data vector contains RIPEMD160(SHA256(cscript)), where cscript is the serialized redemption script.
  */
-class CDealtokenAddress;
-class CDealtokenAddressVisitor : public boost::static_visitor<bool>
+class CDakeCoinAddress;
+class CDakeCoinAddressVisitor : public boost::static_visitor<bool>
 {
 private:
-    CDealtokenAddress *addr;
+    CDakeCoinAddress *addr;
 public:
-    CDealtokenAddressVisitor(CDealtokenAddress *addrIn) : addr(addrIn) { }
+    CDakeCoinAddressVisitor(CDakeCoinAddress *addrIn) : addr(addrIn) { }
     bool operator()(const CKeyID &id) const;
     bool operator()(const CScriptID &id) const;
     bool operator()(const CNoDestination &no) const;
 };
 
-class CDealtokenAddress : public CBase58Data
+class CDakeCoinAddress : public CBase58Data
 {
 public:
     enum
@@ -291,7 +291,7 @@ public:
 
     bool Set(const CTxDestination &dest)
     {
-        return boost::apply_visitor(CDealtokenAddressVisitor(this), dest);
+        return boost::apply_visitor(CDakeCoinAddressVisitor(this), dest);
     }
 
     bool IsValid() const
@@ -324,21 +324,21 @@ public:
         return fExpectTestNet == fTestNet && vchData.size() == nExpectedSize;
     }
 
-    CDealtokenAddress()
+    CDakeCoinAddress()
     {
     }
 
-    CDealtokenAddress(const CTxDestination &dest)
+    CDakeCoinAddress(const CTxDestination &dest)
     {
         Set(dest);
     }
 
-    CDealtokenAddress(const std::string& strAddress)
+    CDakeCoinAddress(const std::string& strAddress)
     {
         SetString(strAddress);
     }
 
-    CDealtokenAddress(const char* pszAddress)
+    CDakeCoinAddress(const char* pszAddress)
     {
         SetString(pszAddress);
     }
@@ -390,20 +390,20 @@ public:
         }
     }
 };
-typedef CDealtokenAddress CBitcoinAddress;
+typedef CDakeCoinAddress CBitcoinAddress;
 
-bool inline CDealtokenAddressVisitor::operator()(const CKeyID &id) const         { return addr->Set(id); }
-bool inline CDealtokenAddressVisitor::operator()(const CScriptID &id) const      { return addr->Set(id); }
-bool inline CDealtokenAddressVisitor::operator()(const CNoDestination &id) const { return false; }
+bool inline CDakeCoinAddressVisitor::operator()(const CKeyID &id) const         { return addr->Set(id); }
+bool inline CDakeCoinAddressVisitor::operator()(const CScriptID &id) const      { return addr->Set(id); }
+bool inline CDakeCoinAddressVisitor::operator()(const CNoDestination &id) const { return false; }
 
 /** A base58-encoded secret key */
-class CDealtokenSecret : public CBase58Data
+class CDakeCoinSecret : public CBase58Data
 {
 public:
     void SetSecret(const CSecret& vchSecret, bool fCompressed)
     {
         assert(vchSecret.size() == 32);
-        SetData(128 + (fTestNet ? CDealtokenAddress::PUBKEY_ADDRESS_TEST : CDealtokenAddress::PUBKEY_ADDRESS), &vchSecret[0], vchSecret.size());
+        SetData(128 + (fTestNet ? CDakeCoinAddress::PUBKEY_ADDRESS_TEST : CDakeCoinAddress::PUBKEY_ADDRESS), &vchSecret[0], vchSecret.size());
         if (fCompressed)
             vchData.push_back(1);
     }
@@ -422,10 +422,10 @@ public:
         bool fExpectTestNet = false;
         switch(nVersion)
         {
-             case (128 + CDealtokenAddress::PUBKEY_ADDRESS):
+             case (128 + CDakeCoinAddress::PUBKEY_ADDRESS):
                 break;
 
-            case (128 + CDealtokenAddress::PUBKEY_ADDRESS_TEST):
+            case (128 + CDakeCoinAddress::PUBKEY_ADDRESS_TEST):
                 fExpectTestNet = true;
                 break;
 
@@ -445,12 +445,12 @@ public:
         return SetString(strSecret.c_str());
     }
 
-    CDealtokenSecret(const CSecret& vchSecret, bool fCompressed)
+    CDakeCoinSecret(const CSecret& vchSecret, bool fCompressed)
     {
         SetSecret(vchSecret, fCompressed);
     }
 
-    CDealtokenSecret()
+    CDakeCoinSecret()
     {
     }
 };

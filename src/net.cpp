@@ -1,11 +1,11 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
-// Copyright (c) 2009-2012 The Dealtoken Core developers
-// Copyright (c) 2011-2015 The Dealtoken developers
+// Copyright (c) 2009-2012 The DakeCoin Core developers
+// Copyright (c) 2011-2015 The DakeCoin developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #if defined(HAVE_CONFIG_H)
-#include "Dealtoken-config.h"
+#include "DakeCoin-config.h"
 #endif
 
 #include "db.h"
@@ -382,7 +382,7 @@ bool GetMyExternalIP(CNetAddr& ipRet)//<coingo.vip>
 void ThreadGetMyExternalIP(void* parg)
 {
     // Make this thread recognisable as the external IP detection thread
-    RenameThread("Dealtoken-ext-ip");
+    RenameThread("DakeCoin-ext-ip");
 
     CNetAddr addrLocalHost;
     if (GetMyExternalIP(addrLocalHost))
@@ -1102,7 +1102,7 @@ void ThreadMapPort()
             }
         }
 
-        string strDesc = "Dealtoken " + FormatFullVersion();
+        string strDesc = "DakeCoin " + FormatFullVersion();
 
         try {
             loop {
@@ -1721,7 +1721,7 @@ bool BindListenPort(const CService &addrBind, string& strError)
     {
         int nErr = WSAGetLastError();
         if (nErr == WSAEADDRINUSE)
-            strError = strprintf(_("Unable to bind to %s on this computer. Dealtoken is probably already running."), addrBind.ToString().c_str());
+            strError = strprintf(_("Unable to bind to %s on this computer. DakeCoin is probably already running."), addrBind.ToString().c_str());
         else
             strError = strprintf(_("Unable to bind to %s on this computer (bind returned error %d, %s)"), addrBind.ToString().c_str(), nErr, strerror(nErr));
         printf("%s\n", strError.c_str());
@@ -1847,7 +1847,7 @@ void StartNode(boost::thread_group& threadGroup)
 bool StopNode()
 {
     printf("StopNode()\n");
-    GenerateDealtokens(false, NULL);
+    GenerateDakeCoins(false, NULL);
     MapPort(false);
     nTransactionsUpdated++;
     if (semOutbound)

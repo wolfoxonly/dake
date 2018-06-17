@@ -3,7 +3,7 @@
 set -e
 
 cd $(dirname $0)/base
-docker build -t Dealtoken/base .
+docker build -t DakeCoin/base .
 
 cd ../base_devel
-docker build -t Dealtoken/devel .
+docker build -t DakeCoin/devel .

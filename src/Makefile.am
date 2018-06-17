@@ -1,4 +1,4 @@
-# Copyright (c) 2013-2016 The Dealtoken Core developers
+# Copyright (c) 2013-2016 The DakeCoin Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -19,21 +19,21 @@ endif
 BITCOIN_CONFIG_INCLUDES=-I$(builddir)/config
 BITCOIN_INCLUDES=-I$(builddir) -I$(builddir)/obj $(BDB_CPPFLAGS) $(BOOST_CPPFLAGS) $(LEVELDB_CPPFLAGS) $(CRYPTO_CFLAGS) $(SSL_CFLAGS)
 
-LIBDEALTOKEN_SERVER=libDealtoken_server.a
-LIBDEALTOKEN_COMMON=libDealtoken_common.a
-LIBDEALTOKEN_CLI=libDealtoken_cli.a
-LIBDEALTOKENQT=qt/libDealtokenqt.a
+LIBDAKECOIN_SERVER=libDakeCoin_server.a
+LIBDAKECOIN_COMMON=libDakeCoin_common.a
+LIBDAKECOIN_CLI=libDakeCoin_cli.a
+LIBDAKECOINQT=qt/libDakeCoinqt.a
 if ENABLE_WALLET
-LIBDEALTOKEN_WALLET=libDealtoken_wallet.a
+LIBDAKECOIN_WALLET=libDakeCoin_wallet.a
 endif
 
 # Make is not made aware of per-object dependencies to avoid limiting building parallelization
 # But to build the less dependent modules first, we manually select their order here:
 EXTRA_LIBRARIES += \
-  $(LIBDEALTOKEN_COMMON) \
-  $(LIBDEALTOKEN_SERVER) \
-  $(LIBDEALTOKEN_CLI) \
-  $(LIBDEALTOKEN_WALLET) 
+  $(LIBDAKECOIN_COMMON) \
+  $(LIBDAKECOIN_SERVER) \
+  $(LIBDAKECOIN_CLI) \
+  $(LIBDAKECOIN_WALLET) 
 
 bin_PROGRAMS =
 noinst_LIBRARIES = 
@@ -42,15 +42,15 @@ TESTS =
 BENCHMARKS =
 
 if BUILD_BITCOIND
-  bin_PROGRAMS += Dealtokend
+  bin_PROGRAMS += DakeCoind
 endif
 
 if BUILD_BITCOIN_UTILS
-  bin_PROGRAMS += Dealtoken-cli
+  bin_PROGRAMS += DakeCoin-cli
 endif
 
 .PHONY: FORCE
-# Dealtoken core #
+# DakeCoin core #
 BITCOIN_CORE_H = \
   addrman.h \
   alert.h \
@@ -107,12 +107,12 @@ obj/build.h: FORCE
 	@$(MKDIR_P) $(abs_top_builddir)/src/obj
 	@$(top_srcdir)/share/genbuild.sh $(abs_top_builddir)/src/obj/build.h \
 	  $(abs_top_srcdir)
-libDealtoken_common_a-version.$(OBJEXT): obj/build.h
+libDakeCoin_common_a-version.$(OBJEXT): obj/build.h
 
-# server: shared between Dealtokend and Dealtoken-qt
-libDealtoken_server_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(MINIUPNPC_CPPFLAGS) $(EVENT_CFLAGS) $(EVENT_PTHREADS_CFLAGS)
-libDealtoken_server_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-libDealtoken_server_a_SOURCES = \
+# server: shared between DakeCoind and DakeCoin-qt
+libDakeCoin_server_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(MINIUPNPC_CPPFLAGS) $(EVENT_CFLAGS) $(EVENT_PTHREADS_CFLAGS)
+libDakeCoin_server_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+libDakeCoin_server_a_SOURCES = \
   addrman.cpp \
   alert.cpp \
   rpcserver.cpp \
@@ -135,11 +135,11 @@ libDealtoken_server_a_SOURCES = \
   $(JSON_H) \
   $(BITCOIN_CORE_H)
 
-# wallet: shared between Dealtokend and Dealtoken-qt, but only linked
+# wallet: shared between DakeCoind and DakeCoin-qt, but only linked
 # when wallet enabled  
-libDealtoken_wallet_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
-libDealtoken_wallet_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)  
-libDealtoken_wallet_a_SOURCES = \
+libDakeCoin_wallet_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
+libDakeCoin_wallet_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)  
+libDakeCoin_wallet_a_SOURCES = \
   db.cpp \
   rpcdump.cpp \
   rpcmining.cpp \
@@ -152,10 +152,10 @@ libDealtoken_wallet_a_SOURCES = \
   $(BITCOIN_CORE_H)
 
 
-# common: shared between Dealtokend, and Dealtoken-qt and non-server tools
-libDealtoken_common_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
-libDealtoken_common_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)  
-libDealtoken_common_a_SOURCES = \
+# common: shared between DakeCoind, and DakeCoin-qt and non-server tools
+libDakeCoin_common_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
+libDakeCoin_common_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)  
+libDakeCoin_common_a_SOURCES = \
   hash.cpp \
   key.cpp \
   netbase.cpp \
@@ -167,51 +167,51 @@ libDealtoken_common_a_SOURCES = \
   $(BITCOIN_CORE_H)
 
 
-# cli: shared between Dealtoken-cli and Dealtoken-qt
-libDealtoken_cli_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
-libDealtoken_cli_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)  
-libDealtoken_cli_a_SOURCES = \
+# cli: shared between DakeCoin-cli and DakeCoin-qt
+libDakeCoin_cli_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
+libDakeCoin_cli_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)  
+libDakeCoin_cli_a_SOURCES = \
   rpcclient.cpp \
   $(BITCOIN_CORE_H)
 
-nodist_libDealtoken_common_a_SOURCES = $(top_srcdir)/src/obj/build.h
+nodist_libDakeCoin_common_a_SOURCES = $(top_srcdir)/src/obj/build.h
 #
 
-# Dealtokend binary #
-Dealtokend_SOURCES = Dealtokend.cpp
-Dealtokend_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
-Dealtokend_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-Dealtokend_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+# DakeCoind binary #
+DakeCoind_SOURCES = DakeCoind.cpp
+DakeCoind_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
+DakeCoind_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+DakeCoind_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-Dealtokend_SOURCES += Dealtokend-res.rc
+DakeCoind_SOURCES += DakeCoind-res.rc
 endif
 
-Dealtokend_LDADD = \
-  $(LIBDEALTOKEN_SERVER) \
-  $(LIBDEALTOKEN_COMMON) \
-  $(LIBDEALTOKEN_WALLET) \
-  $(LIBDEALTOKEN_CLI) \
+DakeCoind_LDADD = \
+  $(LIBDAKECOIN_SERVER) \
+  $(LIBDAKECOIN_COMMON) \
+  $(LIBDAKECOIN_WALLET) \
+  $(LIBDAKECOIN_CLI) \
   $(LIBLEVELDB) \
   $(LIBMEMENV) 
 
-Dealtokend_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS) $(ZMQ_LIBS)
+DakeCoind_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS) $(ZMQ_LIBS)
 
-# Dealtoken-cli binary #
-Dealtoken_cli_SOURCES = Dealtoken-cli.cpp
-Dealtoken_cli_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(EVENT_CFLAGS)
-Dealtoken_cli_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-Dealtoken_cli_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+# DakeCoin-cli binary #
+DakeCoin_cli_SOURCES = DakeCoin-cli.cpp
+DakeCoin_cli_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(EVENT_CFLAGS)
+DakeCoin_cli_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+DakeCoin_cli_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-Dealtoken_cli_SOURCES += Dealtoken-cli-res.rc
+DakeCoin_cli_SOURCES += DakeCoin-cli-res.rc
 endif
 
-Dealtoken_cli_LDADD = \
-  $(LIBDEALTOKEN_CLI) \
-  $(LIBDEALTOKEN_COMMON)
+DakeCoin_cli_LDADD = \
+  $(LIBDAKECOIN_CLI) \
+  $(LIBDAKECOIN_COMMON)
 
-Dealtoken_cli_LDADD += $(BOOST_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(EVENT_LIBS)
+DakeCoin_cli_LDADD += $(BOOST_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(EVENT_LIBS)
 
 
 CLEANFILES = $(EXTRA_LIBRARIES)
@@ -221,12 +221,12 @@ DISTCLEANFILES = obj/build.h
 EXTRA_DIST = leveldb
 
 
-config/Dealtoken-config.h: config/stamp-h1
+config/DakeCoin-config.h: config/stamp-h1
 	@$(MAKE) -C $(top_builddir) $(subdir)/$(@)
-config/stamp-h1: $(top_srcdir)/$(subdir)/config/Dealtoken-config.h.in $(top_builddir)/config.status
+config/stamp-h1: $(top_srcdir)/$(subdir)/config/DakeCoin-config.h.in $(top_builddir)/config.status
 	$(AM_V_at)$(MAKE) -C $(top_builddir) $(subdir)/$(@)
-$(top_srcdir)/$(subdir)/config/Dealtoken-config.h.in:  $(am__configure_deps)
-	$(AM_V_at)$(MAKE) -C $(top_srcdir) $(subdir)/config/Dealtoken-config.h.in
+$(top_srcdir)/$(subdir)/config/DakeCoin-config.h.in:  $(am__configure_deps)
+	$(AM_V_at)$(MAKE) -C $(top_srcdir) $(subdir)/config/DakeCoin-config.h.in
 
 clean-local:
 	-$(MAKE) -C leveldb clean

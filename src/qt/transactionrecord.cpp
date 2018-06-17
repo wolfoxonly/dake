@@ -50,7 +50,7 @@ QList<TransactionRecord> TransactionRecord::decomposeTransaction(const CWallet *
             CTxOut txout = wtx.vout[1];
 
             if(ExtractDestination(txout.scriptPubKey, address) && IsMine(*wallet, address))
-                sub.address = CDealtokenAddress(address).ToString();
+                sub.address = CDakeCoinAddress(address).ToString();
 
             parts.append(sub);
         }
@@ -70,9 +70,9 @@ QList<TransactionRecord> TransactionRecord::decomposeTransaction(const CWallet *
 
                     if (ExtractDestination(txout.scriptPubKey, address) && IsMine(*wallet, address))
                     {
-                        // Received by Dealtoken Address
+                        // Received by DakeCoin Address
                         sub.type = TransactionRecord::RecvWithAddress;
-                        sub.address = CDealtokenAddress(address).ToString();
+                        sub.address = CDakeCoinAddress(address).ToString();
                     }
                     else
                     {
@@ -131,9 +131,9 @@ QList<TransactionRecord> TransactionRecord::decomposeTransaction(const CWallet *
                     CTxDestination address;
                     if (ExtractDestination(txout.scriptPubKey, address))
                     {
-                        // Sent to Dealtoken Address
+                        // Sent to DakeCoin Address
                         sub.type = TransactionRecord::SendToAddress;
-                        sub.address = CDealtokenAddress(address).ToString();
+                        sub.address = CDakeCoinAddress(address).ToString();
                     }
                     else
                     {

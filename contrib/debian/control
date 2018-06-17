@@ -1,4 +1,4 @@
-Source: Dealtoken
+Source: DakeCoin
 Section: utils
 Priority: optional
 Maintainer: Matt Corallo <matt@mattcorallo.com>
@@ -26,45 +26,45 @@ Build-Depends: debhelper,
  python,
  libzmq3-dev
 Standards-Version: 3.9.2
-Homepage: https://Dealtokencore.org/
-Vcs-Git: git://github.com/Dealtoken/Dealtoken.git
-Vcs-Browser: https://github.com/Dealtoken/Dealtoken
+Homepage: https://DakeCoincore.org/
+Vcs-Git: git://github.com/DakeCoin/DakeCoin.git
+Vcs-Browser: https://github.com/DakeCoin/DakeCoin
 
-Package: Dealtokend
+Package: DakeCoind
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: peer-to-peer network based digital currency - daemon
- Dealtoken is a free open source peer-to-peer electronic cash system that
+ DakeCoin is a free open source peer-to-peer electronic cash system that
  is completely decentralized, without the need for a central server or
  trusted parties.  Users hold the crypto keys to their own money and
  transact directly with each other, with the help of a P2P network to
  check for double-spending.
  .
- This package provides the daemon, Dealtokend, and the CLI tool
- Dealtoken-cli to interact with the daemon.
+ This package provides the daemon, DakeCoind, and the CLI tool
+ DakeCoin-cli to interact with the daemon.
 
-Package: Dealtoken-qt
+Package: DakeCoin-qt
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: peer-to-peer network based digital currency - Qt GUI
- Dealtoken is a free open source peer-to-peer electronic cash system that
+ DakeCoin is a free open source peer-to-peer electronic cash system that
  is completely decentralized, without the need for a central server or
  trusted parties.  Users hold the crypto keys to their own money and
  transact directly with each other, with the help of a P2P network to
  check for double-spending.
  .
- This package provides Dealtoken-Qt, a GUI for Dealtoken based on Qt.
+ This package provides DakeCoin-Qt, a GUI for DakeCoin based on Qt.
 
-Package: Dealtoken-tx
+Package: DakeCoin-tx
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: peer-to-peer digital currency - standalone transaction tool
- Dealtoken is a free open source peer-to-peer electronic cash system that
+ DakeCoin is a free open source peer-to-peer electronic cash system that
  is completely decentralized, without the need for a central server or
  trusted parties.  Users hold the crypto keys to their own money and
  transact directly with each other, with the help of a P2P network to
  check for double-spending.
  .
- This package provides Dealtoken-tx, a command-line transaction creation
- tool which can be used without a Dealtoken daemon.  Some means of
+ This package provides DakeCoin-tx, a command-line transaction creation
+ tool which can be used without a DakeCoin daemon.  Some means of
  exchanging minimal transaction data with peers is still required.

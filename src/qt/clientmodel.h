@@ -20,7 +20,7 @@ enum BlockSource {
     BLOCK_SOURCE_NETWORK
 };
 
-/** Model for Dealtoken network client. */
+/** Model for DakeCoin network client. */
 class ClientModel : public QObject
 {
     Q_OBJECT

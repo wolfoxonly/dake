@@ -1,5 +1,5 @@
-// Copyright (c) 2009-2012 The Dealtoken developers
-// Copyright (c) 2013-2017 The Dealtoken developers
+// Copyright (c) 2009-2012 The DakeCoin developers
+// Copyright (c) 2013-2017 The DakeCoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -238,7 +238,7 @@ Value makekeypair(const Array& params, bool fHelp)
     result.push_back(Pair("PublicKey", HexStr(key.GetPubKey().Raw())));
     bool fCompressed;
     CSecret vchSecret = key.GetSecret(fCompressed);
-    result.push_back(Pair("PrivateKey", CDealtokenSecret(vchSecret, fCompressed).ToString()));
+    result.push_back(Pair("PrivateKey", CDakeCoinSecret(vchSecret, fCompressed).ToString()));
     CPrivKey vchPrivKey = key.GetPrivKey();
     result.push_back(Pair("PrivateKeyHex", HexStr<CPrivKey::iterator>(vchPrivKey.begin(), vchPrivKey.end())));
     return result;
@@ -271,7 +271,7 @@ Value showkeypair(const Array& params, bool fHelp)
     result.push_back(Pair("PublicKey", HexStr(key.GetPubKey().Raw())));
     bool fCompressed;
     CSecret vchSecret = key.GetSecret(fCompressed);
-    result.push_back(Pair("PrivateKey", CDealtokenSecret(vchSecret, fCompressed).ToString()));
+    result.push_back(Pair("PrivateKey", CDakeCoinSecret(vchSecret, fCompressed).ToString()));
     result.push_back(Pair("PrivateKeyHex", strPrivKey));
     return result;
 }

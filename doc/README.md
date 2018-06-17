@@ -1,41 +1,41 @@
-Dealtoken Core
+DakeCoin Core
 =============
 
 Setup
 ---------------------
-Dealtoken Core is the original Dealtoken client and it builds the backbone of the network. It downloads and, by default, stores the entire history of Dealtoken transactions (which is currently more than 100 GBs); depending on the speed of your computer and network connection, the synchronization process can take anywhere from a few hours to a day or more.
+DakeCoin Core is the original DakeCoin client and it builds the backbone of the network. It downloads and, by default, stores the entire history of DakeCoin transactions (which is currently more than 100 GBs); depending on the speed of your computer and network connection, the synchronization process can take anywhere from a few hours to a day or more.
 
-To download Dealtoken Core, visit [Dealtokencore.org](https://Dealtokencore.org/en/releases/).
+To download DakeCoin Core, visit [DakeCoincore.org](https://DakeCoincore.org/en/releases/).
 
 Running
 ---------------------
-The following are some helpful notes on how to run Dealtoken on your native platform.
+The following are some helpful notes on how to run DakeCoin on your native platform.
 
 ### Unix
 
 Unpack the files into a directory and run:
 
-- `bin/Dealtoken-qt` (GUI) or
-- `bin/Dealtokend` (headless)
+- `bin/DakeCoin-qt` (GUI) or
+- `bin/DakeCoind` (headless)
 
 ### Windows
 
-Unpack the files into a directory, and then run Dealtoken-qt.exe.
+Unpack the files into a directory, and then run DakeCoin-qt.exe.
 
 ### OS X
 
-Drag Dealtoken-Core to your applications folder, and then run Dealtoken-Core.
+Drag DakeCoin-Core to your applications folder, and then run DakeCoin-Core.
 
 ### Need Help?
 
-* See the documentation at the [Dealtoken Wiki](https://en.Dealtoken.it/wiki/Main_Page)
+* See the documentation at the [DakeCoin Wiki](https://en.DakeCoin.it/wiki/Main_Page)
 for help and more information.
-* Ask for help on [#Dealtoken](http://webchat.freenode.net?channels=Dealtoken) on Freenode. If you don't have an IRC client use [webchat here](http://webchat.freenode.net?channels=Dealtoken).
-* Ask for help on the [DealtokenTalk](https://Dealtokentalk.org/) forums, in the [Technical Support board](https://Dealtokentalk.org/index.php?board=4.0).
+* Ask for help on [#DakeCoin](http://webchat.freenode.net?channels=DakeCoin) on Freenode. If you don't have an IRC client use [webchat here](http://webchat.freenode.net?channels=DakeCoin).
+* Ask for help on the [DakeCoinTalk](https://DakeCointalk.org/) forums, in the [Technical Support board](https://DakeCointalk.org/index.php?board=4.0).
 
 Building
 ---------------------
-The following are developer notes on how to build Dealtoken on your native platform. They are not complete guides, but include notes on the necessary libraries, compile flags, etc.
+The following are developer notes on how to build DakeCoin on your native platform. They are not complete guides, but include notes on the necessary libraries, compile flags, etc.
 
 - [Dependencies](dependencies.md)
 - [OS X Build Notes](build-osx.md)
@@ -46,12 +46,12 @@ The following are developer notes on how to build Dealtoken on your native platf
 
 Development
 ---------------------
-The Dealtoken repo's [root README](/README.md) contains relevant information on the development process and automated testing.
+The DakeCoin repo's [root README](/README.md) contains relevant information on the development process and automated testing.
 
 - [Developer Notes](developer-notes.md)
 - [Release Notes](release-notes.md)
 - [Release Process](release-process.md)
-- [Source Code Documentation (External Link)](https://dev.visucore.com/Dealtoken/doxygen/)
+- [Source Code Documentation (External Link)](https://dev.visucore.com/DakeCoin/doxygen/)
 - [Translation Process](translation_process.md)
 - [Translation Strings Policy](translation_strings_policy.md)
 - [Travis CI](travis-ci.md)
@@ -62,9 +62,9 @@ The Dealtoken repo's [root README](/README.md) contains relevant information on 
 - [Benchmarking](benchmarking.md)
 
 ### Resources
-* Discuss on the [DealtokenTalk](https://Dealtokentalk.org/) forums, in the [Development & Technical Discussion board](https://Dealtokentalk.org/index.php?board=6.0).
-* Discuss project-specific development on #Dealtoken-core-dev on Freenode. If you don't have an IRC client use [webchat here](http://webchat.freenode.net/?channels=Dealtoken-core-dev).
-* Discuss general Dealtoken development on #Dealtoken-dev on Freenode. If you don't have an IRC client use [webchat here](http://webchat.freenode.net/?channels=Dealtoken-dev).
+* Discuss on the [DakeCoinTalk](https://DakeCointalk.org/) forums, in the [Development & Technical Discussion board](https://DakeCointalk.org/index.php?board=6.0).
+* Discuss project-specific development on #DakeCoin-core-dev on Freenode. If you don't have an IRC client use [webchat here](http://webchat.freenode.net/?channels=DakeCoin-core-dev).
+* Discuss general DakeCoin development on #DakeCoin-dev on Freenode. If you don't have an IRC client use [webchat here](http://webchat.freenode.net/?channels=DakeCoin-dev).
 
 ### Miscellaneous
 - [Assets Attribution](assets-attribution.md)

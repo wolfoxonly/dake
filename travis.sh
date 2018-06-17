@@ -12,7 +12,7 @@ export TRAVIS_JOB_NUMBER=JobNo.1
 
 # Matrix
 #matrix="Win32Gui"
-#matrix="Dealtokend"
+#matrix="DakeCoind"
 matrix="Cross-Mac"
 
 # For `matrix="Cross-Mac"'
@@ -36,7 +36,7 @@ export CCACHE_SIZE=100M
 export CCACHE_TEMPDIR=/tmp/.ccache-temp
 export CCACHE_COMPRESS=1
 export BASE_OUTDIR=$PWD/built
-export SDK_URL=https://Dealtokencore.org/depends-sources/sdks
+export SDK_URL=https://DakeCoincore.org/depends-sources/sdks
 export PYTHON_DEBUG=1
 export WINEDEBUG=fixme-all
 
@@ -87,8 +87,8 @@ elif [ "$matrix" = "Cross-Mac" ]; then
 	export GOAL="deploy"
 	export BITCOIN_CONFIG="--disable-debug --disable-bench --enable-gui --disable-tests --enable-reduce-exports"
 
-# Dealtokend
-elif [ "$matrix" = "Dealtokend" ]; then
+# DakeCoind
+elif [ "$matrix" = "DakeCoind" ]; then
 	export HOST=x86_64-unknown-linux-gnu 
 	export PACKAGES="bc python3-zmq" 
 	export DEP_OPTS="NO_QT=1 NO_UPNP=1" 

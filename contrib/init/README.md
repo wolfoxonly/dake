@@ -1,11 +1,11 @@
 Sample configuration files for:
 ```
-SystemD: Dealtokend.service
-Upstart: Dealtokend.conf
-OpenRC:  Dealtokend.openrc
-         Dealtokend.openrcconf
-CentOS:  Dealtokend.init
-OS X:    org.Dealtoken.Dealtokend.plist
+SystemD: DakeCoind.service
+Upstart: DakeCoind.conf
+OpenRC:  DakeCoind.openrc
+         DakeCoind.openrcconf
+CentOS:  DakeCoind.init
+OS X:    org.DakeCoin.DakeCoind.plist
 ```
 have been made available to assist packagers in creating node packages here.
 

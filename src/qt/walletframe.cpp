@@ -1,11 +1,11 @@
 /*
- * Qt4 Dealtoken GUI.
+ * Qt4 DakeCoin GUI.
  *
  * W.J. van der Laan 2011-2012
- * The Dealtoken Developers 2011-2013
+ * The DakeCoin Developers 2011-2013
  */
 #include "walletframe.h"
-#include "Dealtokengui.h"
+#include "DakeCoingui.h"
 #include "walletstack.h"
 
 #include <QVBoxLayout>
@@ -13,7 +13,7 @@
 
 #include <stdio.h>
 
-WalletFrame::WalletFrame(DealtokenGUI *_gui) :
+WalletFrame::WalletFrame(DakeCoinGUI *_gui) :
     QFrame(_gui),
     gui(_gui),
     clientModel(0)
@@ -22,7 +22,7 @@ WalletFrame::WalletFrame(DealtokenGUI *_gui) :
     QHBoxLayout *walletFrameLayout = new QHBoxLayout(this);
     setContentsMargins(0,0,0,0);
     walletStack = new WalletStack(this);
-    walletStack->setDealtokenGUI(gui);
+    walletStack->setDakeCoinGUI(gui);
     walletFrameLayout->setContentsMargins(0,0,0,0);
     walletFrameLayout->addWidget(walletStack);
 }

@@ -23,7 +23,7 @@ don't have test cases for.
 - Avoid wildcard imports where possible
 - Use a module-level docstring to describe what the test is testing, and how it
   is testing it.
-- When subclassing the DealtokenTestFramwork, place overrides for the
+- When subclassing the DakeCoinTestFramwork, place overrides for the
   `set_test_params()`, `add_options()` and `setup_xxxx()` methods at the top of
   the subclass, then locally-defined helper methods, then the `run_test()` method.
 
@@ -60,12 +60,12 @@ over the network (`CBlock`, `CTransaction`, etc, along with the network-level
 wrappers for them, `msg_block`, `msg_tx`, etc).
 
 - P2P tests have two threads. One thread handles all network communication
-with the Dealtokend(s) being tested (using python's asyncore package); the other
+with the DakeCoind(s) being tested (using python's asyncore package); the other
 implements the test logic.
 
-- `P2PConnection` is the class used to connect to a Dealtokend.  `P2PInterface`
+- `P2PConnection` is the class used to connect to a DakeCoind.  `P2PInterface`
 contains the higher level logic for processing P2P payloads and connecting to
-the Dealtoken Core node application logic. For custom behaviour, subclass the
+the DakeCoin Core node application logic. For custom behaviour, subclass the
 P2PInterface object and override the callback methods.
 
 - Call `network_thread_start()` after all `P2PInterface` objects are created to
@@ -78,14 +78,14 @@ Examples tests are `p2p-accept-block.py`, `p2p-compactblocks.py`.
 #### Comptool
 
 - Comptool is a Testing framework for writing tests that compare the block/tx acceptance
-behavior of a Dealtokend against 1 or more other Dealtokend instances. It should not be used
+behavior of a DakeCoind against 1 or more other DakeCoind instances. It should not be used
 to write static tests with known outcomes, since that type of test is easier to write and
-maintain using the standard DealtokenTestFramework.
+maintain using the standard DakeCoinTestFramework.
 
 - Set the `num_nodes` variable (defined in `ComparisonTestFramework`) to start up
 1 or more nodes.  If using 1 node, then `--testbinary` can be used as a command line
-option to change the Dealtokend binary used by the test.  If using 2 or more nodes,
-then `--refbinary` can be optionally used to change the Dealtokend that will be used
+option to change the DakeCoind binary used by the test.  If using 2 or more nodes,
+then `--refbinary` can be optionally used to change the DakeCoind that will be used
 on nodes 2 and up.
 
 - Implement a (generator) function called `get_tests()` which yields `TestInstance`s.
@@ -94,13 +94,13 @@ Each `TestInstance` consists of:
     * `object` is a `CBlock`, `CTransaction`, or
     `CBlockHeader`.  `CBlock`'s and `CTransaction`'s are tested for
     acceptance.  `CBlockHeader`s can be used so that the test runner can deliver
-    complete headers-chains when requested from the Dealtokend, to allow writing
+    complete headers-chains when requested from the DakeCoind, to allow writing
     tests where blocks can be delivered out of order but still processed by
-    headers-first Dealtokend's.
+    headers-first DakeCoind's.
     * `outcome` is `True`, `False`, or `None`.  If `True`
     or `False`, the tip is compared with the expected tip -- either the
     block passed in, or the hash specified as the optional 3rd entry.  If
-    `None` is specified, then the test will compare all the Dealtokend's
+    `None` is specified, then the test will compare all the DakeCoind's
     being tested to see if they all agree on what the best tip is.
     * `hash` is the block hash of the tip to compare against. Optional to
     specify; if left out then the hash of the block passed in will be used as
@@ -114,7 +114,7 @@ Each `TestInstance` consists of:
     sequence and synced (this is slower when processing many blocks).
   - `sync_every_transaction`: `True/False`.  Analogous to
     `sync_every_block`, except if the outcome on the last tx is "None",
-    then the contents of the entire mempool are compared across all Dealtokend
+    then the contents of the entire mempool are compared across all DakeCoind
     connections.  If `True` or `False`, then only the last tx's
     acceptance is tested against the given outcome.
 
@@ -124,7 +124,7 @@ Each `TestInstance` consists of:
 ### test-framework modules
 
 #### [test_framework/authproxy.py](test_framework/authproxy.py)
-Taken from the [python-Dealtokenrpc repository](https://github.com/jgarzik/python-Dealtokenrpc).
+Taken from the [python-DakeCoinrpc repository](https://github.com/jgarzik/python-DakeCoinrpc).
 
 #### [test_framework/test_framework.py](test_framework/test_framework.py)
 Base class for functional tests.
@@ -133,19 +133,19 @@ Base class for functional tests.
 Generally useful functions.
 
 #### [test_framework/mininode.py](test_framework/mininode.py)
-Basic code to support P2P connectivity to a Dealtokend.
+Basic code to support P2P connectivity to a DakeCoind.
 
 #### [test_framework/comptool.py](test_framework/comptool.py)
 Framework for comparison-tool style, P2P tests.
 
 #### [test_framework/script.py](test_framework/script.py)
-Utilities for manipulating transaction scripts (originally from python-Dealtokenlib)
+Utilities for manipulating transaction scripts (originally from python-DakeCoinlib)
 
 #### [test_framework/blockstore.py](test_framework/blockstore.py)
 Implements disk-backed block and tx storage.
 
 #### [test_framework/key.py](test_framework/key.py)
-Wrapper around OpenSSL EC_Key (originally from python-Dealtokenlib)
+Wrapper around OpenSSL EC_Key (originally from python-DakeCoinlib)
 
 #### [test_framework/bignum.py](test_framework/bignum.py)
 Helpers for script.py

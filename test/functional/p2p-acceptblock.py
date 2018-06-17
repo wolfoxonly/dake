@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Copyright (c) 2015-2017 The Dealtoken Core developers
+# Copyright (c) 2015-2017 The DakeCoin Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 """Test processing of unrequested blocks.
@@ -52,16 +52,16 @@ Node1 is unused in tests 3-7:
 """
 
 from test_framework.mininode import *
-from test_framework.test_framework import DealtokenTestFramework
+from test_framework.test_framework import DakeCoinTestFramework
 from test_framework.util import *
 import time
 from test_framework.blocktools import create_block, create_coinbase, create_transaction
 
-class AcceptBlockTest(DealtokenTestFramework):
+class AcceptBlockTest(DakeCoinTestFramework):
     def add_options(self, parser):
         parser.add_option("--testbinary", dest="testbinary",
-                          default=os.getenv("BITCOIND", "Dealtokend"),
-                          help="Dealtokend binary to test")
+                          default=os.getenv("BITCOIND", "DakeCoind"),
+                          help="DakeCoind binary to test")
 
     def set_test_params(self):
         self.setup_clean_chain = True

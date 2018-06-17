@@ -1,23 +1,23 @@
-Dealtoken version 0.7.1 is now available from:
-  http://sourceforge.net/projects/Dealtoken/files/Dealtoken/Dealtoken-0.7.1/
+DakeCoin version 0.7.1 is now available from:
+  http://sourceforge.net/projects/DakeCoin/files/DakeCoin/DakeCoin-0.7.1/
 
 This is a bug-fix minor release.
 
 Please report bugs using the issue tracker at github:
-  https://github.com/Dealtoken/Dealtoken/issues
+  https://github.com/DakeCoin/DakeCoin/issues
 
 Project source code is hosted at github; you can get
 source-only tarballs/zipballs directly from there:
-  https://github.com/Dealtoken/Dealtoken/tarball/v0.7.1  # .tar.gz
-  https://github.com/Dealtoken/Dealtoken/zipball/v0.7.1  # .zip
+  https://github.com/DakeCoin/DakeCoin/tarball/v0.7.1  # .tar.gz
+  https://github.com/DakeCoin/DakeCoin/zipball/v0.7.1  # .zip
 
 Ubuntu Linux users can use the "Personal Package Archive" (PPA)
 maintained by Matt Corallo to automatically keep 
 up-to-date.  Just type:
-  sudo apt-add-repository ppa:Dealtoken/Dealtoken
+  sudo apt-add-repository ppa:DakeCoin/DakeCoin
   sudo apt-get update
-in your terminal, then install the Dealtoken-qt package:
-  sudo apt-get install Dealtoken-qt
+in your terminal, then install the DakeCoin-qt package:
+  sudo apt-get install DakeCoin-qt
 
 KNOWN ISSUES
 ------------
@@ -30,7 +30,7 @@ How to Upgrade
 If you are running an older version, shut it down. Wait
 until it has completely shut down (which might take a few minutes for older
 versions), then run the installer (on Windows) or just copy over
-/Applications/Dealtoken-Qt (on Mac) or Dealtokend/Dealtoken-qt (on Linux).
+/Applications/DakeCoin-Qt (on Mac) or DakeCoind/DakeCoin-qt (on Linux).
 
 If you were running on Linux with a version that might have been compiled
 with a different version of Berkeley DB (for example, if you were using an
@@ -75,7 +75,7 @@ Dependency changes
 Bug fixes
 ---------
 
-* Clicking on a Dealtoken: URI on Windows should now launch Dealtoken-Qt properly.
+* Clicking on a DakeCoin: URI on Windows should now launch DakeCoin-Qt properly.
 
 * When running -testnet, use RPC port 18332 by default.
 

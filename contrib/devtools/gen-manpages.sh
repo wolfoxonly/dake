@@ -4,10 +4,10 @@ TOPDIR=${TOPDIR:-$(git rev-parse --show-toplevel)}
 SRCDIR=${SRCDIR:-$TOPDIR/src}
 MANDIR=${MANDIR:-$TOPDIR/doc/man}
 
-BITCOIND=${BITCOIND:-$SRCDIR/Dealtokend}
-BITCOINCLI=${BITCOINCLI:-$SRCDIR/Dealtoken-cli}
-BITCOINTX=${BITCOINTX:-$SRCDIR/Dealtoken-tx}
-BITCOINQT=${BITCOINQT:-$SRCDIR/qt/Dealtoken-qt}
+BITCOIND=${BITCOIND:-$SRCDIR/DakeCoind}
+BITCOINCLI=${BITCOINCLI:-$SRCDIR/DakeCoin-cli}
+BITCOINTX=${BITCOINTX:-$SRCDIR/DakeCoin-tx}
+BITCOINQT=${BITCOINQT:-$SRCDIR/qt/DakeCoin-qt}
 
 [ ! -x $BITCOIND ] && echo "$BITCOIND not found or not executable." && exit 1
 
@@ -15,8 +15,8 @@ BITCOINQT=${BITCOINQT:-$SRCDIR/qt/Dealtoken-qt}
 BTCVER=($($BITCOINCLI --version | head -n1 | awk -F'[ -]' '{ print $6, $7 }'))
 
 # Create a footer file with copyright content.
-# This gets autodetected fine for Dealtokend if --version-string is not set,
-# but has different outcomes for Dealtoken-qt and Dealtoken-cli.
+# This gets autodetected fine for DakeCoind if --version-string is not set,
+# but has different outcomes for DakeCoin-qt and DakeCoin-cli.
 echo "[COPYRIGHT]" > footer.h2m
 $BITCOIND --version | sed -n '1!p' >> footer.h2m
 

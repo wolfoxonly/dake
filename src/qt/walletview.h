@@ -1,15 +1,15 @@
 /*
- * Qt4 Dealtoken GUI.
+ * Qt4 DakeCoin GUI.
  *
  * W.J. van der Laan 2011-2012
- * The Dealtoken Developers 2011-2013
+ * The DakeCoin Developers 2011-2013
  */
 #ifndef WALLETVIEW_H
 #define WALLETVIEW_H
 
 #include <QStackedWidget>
 
-class DealtokenGUI;
+class DakeCoinGUI;
 class ClientModel;
 class WalletModel;
 class TransactionView;
@@ -36,16 +36,16 @@ class WalletView : public QStackedWidget
     Q_OBJECT
 
 public:
-    explicit WalletView(QWidget *parent, DealtokenGUI *_gui);
+    explicit WalletView(QWidget *parent, DakeCoinGUI *_gui);
     ~WalletView();
 
-    void setDealtokenGUI(DealtokenGUI *gui);
+    void setDakeCoinGUI(DakeCoinGUI *gui);
     /** Set the client model.
         The client model represents the part of the core that communicates with the P2P network, and is wallet-agnostic.
     */
     void setClientModel(ClientModel *clientModel);
     /** Set the wallet model.
-        The wallet model represents a Dealtoken wallet, and offers access to the list of transactions, address book and sending
+        The wallet model represents a DakeCoin wallet, and offers access to the list of transactions, address book and sending
         functionality.
     */
     void setWalletModel(WalletModel *walletModel);
@@ -55,7 +55,7 @@ public:
     void showOutOfSyncWarning(bool fShow);
 
 private:
-    DealtokenGUI *gui;
+    DakeCoinGUI *gui;
     ClientModel *clientModel;
     WalletModel *walletModel;
 

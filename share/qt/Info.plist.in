@@ -11,7 +11,7 @@
   </array>
 
   <key>CFBundleIconFile</key>
-  <string>Dealtoken.icns</string>
+  <string>DakeCoin.icns</string>
 
   <key>CFBundlePackageType</key>
   <string>APPL</string>
@@ -29,16 +29,16 @@
   <string>????</string>
 
   <key>CFBundleExecutable</key>
-  <string>Dealtoken-Qt</string>
+  <string>DakeCoin-Qt</string>
   
   <key>CFBundleName</key>
-  <string>Dealtoken-Qt</string>
+  <string>DakeCoin-Qt</string>
 
   <key>LSHasLocalizedDisplayName</key>
   <true/>
 
   <key>CFBundleIdentifier</key>
-  <string>org.Dealtokenfoundation.Dealtoken-Qt</string>
+  <string>org.DakeCoinfoundation.DakeCoin-Qt</string>
 
   <key>CFBundleURLTypes</key>
   <array>
@@ -46,10 +46,10 @@
       <key>CFBundleTypeRole</key>
       <string>Editor</string>
       <key>CFBundleURLName</key>
-      <string>org.Dealtoken.DealtokenPayment</string>
+      <string>org.DakeCoin.DakeCoinPayment</string>
       <key>CFBundleURLSchemes</key>
       <array>
-        <string>Dealtoken</string>
+        <string>DakeCoin</string>
       </array>
     </dict>
   </array>
@@ -58,9 +58,9 @@
   <array>
     <dict>
       <key>UTTypeIdentifier</key>
-      <string>org.Dealtoken.paymentrequest</string>
+      <string>org.DakeCoin.paymentrequest</string>
       <key>UTTypeDescription</key>
-      <string>Dealtoken payment request</string>
+      <string>DakeCoin payment request</string>
       <key>UTTypeConformsTo</key>
       <array>
         <string>public.data</string>
@@ -68,10 +68,10 @@
       <key>UTTypeTagSpecification</key>
       <dict>
         <key>public.mime-type</key>
-        <string>application/x-Dealtoken-payment-request</string>
+        <string>application/x-DakeCoin-payment-request</string>
         <key>public.filename-extension</key>
         <array>
-          <string>Dealtokenpaymentrequest</string>
+          <string>DakeCoinpaymentrequest</string>
         </array>
       </dict>
     </dict>
@@ -84,7 +84,7 @@
       <string>Editor</string>
       <key>LSItemContentTypes</key>
       <array>
-        <string>org.Dealtoken.paymentrequest</string>
+        <string>org.DakeCoin.paymentrequest</string>
       </array>
       <key>LSHandlerRank</key>
       <string>Owner</string>

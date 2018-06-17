@@ -1,6 +1,6 @@
-Building Dealtoken
+Building DakeCoin
 20180212
 ================
 
 See doc/build-*.md for instructions on building the various
-elements of the Dealtoken Core reference implementation of Dealtoken.
+elements of the DakeCoin Core reference implementation of DakeCoin.

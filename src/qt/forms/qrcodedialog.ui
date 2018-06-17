@@ -140,7 +140,7 @@
          </widget>
         </item>
         <item row="0" column="1">
-         <widget class="DealtokenAmountField" name="lnReqAmount">
+         <widget class="DakeCoinAmountField" name="lnReqAmount">
           <property name="enabled">
            <bool>false</bool>
           </property>
@@ -185,9 +185,9 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>DealtokenAmountField</class>
+   <class>DakeCoinAmountField</class>
    <extends>QSpinBox</extends>
-   <header>Dealtokenamountfield.h</header>
+   <header>DakeCoinamountfield.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

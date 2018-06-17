@@ -42,8 +42,8 @@ vector<KernelRecord> KernelRecord::decomposeOutput(const CWallet *wallet, const 
 
                 if (ExtractDestination(txOut.scriptPubKey, address))
                 {
-                    // Sent to Dealtoken Address
-                    addrStr = CDealtokenAddress(address).ToString();
+                    // Sent to DakeCoin Address
+                    addrStr = CDakeCoinAddress(address).ToString();
                 }
                 else
                 {

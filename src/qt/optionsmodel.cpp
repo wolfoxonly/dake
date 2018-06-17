@@ -1,10 +1,10 @@
 #if defined(HAVE_CONFIG_H)
-#include "Dealtoken-config.h"
+#include "DakeCoin-config.h"
 #endif
 
 #include "optionsmodel.h"
 
-#include "Dealtokenunits.h"
+#include "DakeCoinunits.h"
 #include "init.h"
 #include "walletdb.h"
 #include "guiutil.h"
@@ -47,7 +47,7 @@ void OptionsModel::Init()
     QSettings settings;
 
     // These are Qt-only settings:
-    nDisplayUnit = settings.value("nDisplayUnit", DealtokenUnits::BTC).toInt();
+    nDisplayUnit = settings.value("nDisplayUnit", DakeCoinUnits::BTC).toInt();
     bDisplayAddresses = settings.value("bDisplayAddresses", false).toBool();
     fMinimizeToTray = settings.value("fMinimizeToTray", false).toBool();
     fMinimizeOnClose = settings.value("fMinimizeOnClose", false).toBool();
@@ -55,7 +55,7 @@ void OptionsModel::Init()
     language = settings.value("language", "").toString();
     fCheckpointEnforce = settings.value("fCheckpointEnforce", true).toBool();
 
-    // These are shared with core Dealtoken; we want
+    // These are shared with core DakeCoin; we want
     // command-line options to override the GUI settings:
     if (settings.contains("fUseUPnP"))
         SoftSetBoolArg("-upnp", settings.value("fUseUPnP").toBool());

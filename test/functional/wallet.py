@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
-# Copyright (c) 2014-2017 The Dealtoken Core developers
+# Copyright (c) 2014-2017 The DakeCoin Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 """Test the wallet."""
-from test_framework.test_framework import DealtokenTestFramework
+from test_framework.test_framework import DakeCoinTestFramework
 from test_framework.util import *
 
-class WalletTest(DealtokenTestFramework):
+class WalletTest(DakeCoinTestFramework):
     def set_test_params(self):
         self.num_nodes = 4
         self.setup_clean_chain = True
@@ -368,7 +368,7 @@ class WalletTest(DealtokenTestFramework):
             '-reindex',
             '-zapwallettxes=1',
             '-zapwallettxes=2',
-            # disabled until issue is fixed: https://github.com/Dealtoken/Dealtoken/issues/7463
+            # disabled until issue is fixed: https://github.com/DakeCoin/DakeCoin/issues/7463
             # '-salvagewallet',
         ]
         chainlimit = 6

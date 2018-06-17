@@ -1,11 +1,11 @@
 /*
- * Qt4 Dealtoken GUI.
+ * Qt4 DakeCoin GUI.
  *
  * W.J. van der Laan 2011-2012
- * The Dealtoken Developers 2011-2013
+ * The DakeCoin Developers 2011-2013
  */
 #include "walletview.h"
-#include "Dealtokengui.h"
+#include "DakeCoingui.h"
 #include "transactiontablemodel.h"
 #include "addressbookpage.h"
 #include "sendcoinsdialog.h"
@@ -27,7 +27,7 @@
 #include <QFileDialog>
 #include <QPushButton>
 
-WalletView::WalletView(QWidget *parent, DealtokenGUI *_gui):
+WalletView::WalletView(QWidget *parent, DakeCoinGUI *_gui):
     QStackedWidget(parent),
     gui(_gui),
     clientModel(0),
@@ -95,7 +95,7 @@ WalletView::~WalletView()
 {
 }
 
-void WalletView::setDealtokenGUI(DealtokenGUI *gui)
+void WalletView::setDakeCoinGUI(DakeCoinGUI *gui)
 {
     this->gui = gui;
 }

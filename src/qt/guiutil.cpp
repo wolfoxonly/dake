@@ -2,9 +2,9 @@
 
 #include "guiutil.h"
 
-#include "Dealtokenaddressvalidator.h"
+#include "DakeCoinaddressvalidator.h"
 #include "walletmodel.h"
-#include "Dealtokenunits.h"
+#include "DakeCoinunits.h"
 
 #include "util.h"
 #include "init.h"
@@ -58,7 +58,7 @@ QString dateTimeStr(qint64 nTime)
     return dateTimeStr(QDateTime::fromTime_t((qint32)nTime));
 }
 
-QFont DealtokenAddressFont()
+QFont DakeCoinAddressFont()
 {
     QFont font("Monospace");
     font.setStyleHint(QFont::TypeWriter);
@@ -67,9 +67,9 @@ QFont DealtokenAddressFont()
 
 void setupAddressWidget(QLineEdit *widget, QWidget *parent)
 {
-    widget->setMaxLength(DealtokenAddressValidator::MaxAddressLength);
-    widget->setValidator(new DealtokenAddressValidator(parent));
-    widget->setFont(DealtokenAddressFont());
+    widget->setMaxLength(DakeCoinAddressValidator::MaxAddressLength);
+    widget->setValidator(new DakeCoinAddressValidator(parent));
+    widget->setFont(DakeCoinAddressFont());
 }
 
 void setupAmountWidget(QLineEdit *widget, QWidget *parent)
@@ -81,10 +81,10 @@ void setupAmountWidget(QLineEdit *widget, QWidget *parent)
     widget->setAlignment(Qt::AlignRight|Qt::AlignVCenter);
 }
 
-bool parseDealtokenURI(const QUrl &uri, SendCoinsRecipient *out)
+bool parseDakeCoinURI(const QUrl &uri, SendCoinsRecipient *out)
 {
-    // return if URI is not valid or is no Dealtoken URI
-    if(!uri.isValid() || (uri.scheme() != QString("Dealtoken") && uri.scheme() != QString("ppcoin")))
+    // return if URI is not valid or is no DakeCoin URI
+    if(!uri.isValid() || (uri.scheme() != QString("DakeCoin") && uri.scheme() != QString("ppcoin")))
         return false;
 
     SendCoinsRecipient rv;
@@ -114,7 +114,7 @@ bool parseDealtokenURI(const QUrl &uri, SendCoinsRecipient *out)
         {
             if(!i->second.isEmpty())
             {
-                if(!DealtokenUnits::parse(DealtokenUnits::BTC, i->second, &rv.amount))
+                if(!DakeCoinUnits::parse(DakeCoinUnits::BTC, i->second, &rv.amount))
                 {
                     return false;
                 }
@@ -132,22 +132,22 @@ bool parseDealtokenURI(const QUrl &uri, SendCoinsRecipient *out)
     return true;
 }
 
-bool parseDealtokenURI(QString uri, SendCoinsRecipient *out)
+bool parseDakeCoinURI(QString uri, SendCoinsRecipient *out)
 {
-    // Convert Dealtoken:// to Dealtoken:
+    // Convert DakeCoin:// to DakeCoin:
     //
-    //    Cannot handle this later, because Dealtoken:// will cause Qt to see the part after // as host,
+    //    Cannot handle this later, because DakeCoin:// will cause Qt to see the part after // as host,
     //    which will lower-case it (and thus invalidate the address).
-    if(uri.startsWith("Dealtoken://"))
+    if(uri.startsWith("DakeCoin://"))
     {
-        uri.replace(0, 11, "Dealtoken:");
+        uri.replace(0, 11, "DakeCoin:");
     }
     if(uri.startsWith("ppcoin://"))
     {
         uri.replace(0, 9, "ppcoin:");
     }
     QUrl uriInstance(uri);
-    return parseDealtokenURI(uriInstance, out);
+    return parseDakeCoinURI(uriInstance, out);
 }
 
 QString HtmlEscape(const QString& str, bool fMultiLine)
@@ -298,12 +298,12 @@ bool ToolTipToRichTextFilter::eventFilter(QObject *obj, QEvent *evt)
 #ifdef WIN32
 boost::filesystem::path static StartupShortcutPath()
 {
-    return GetSpecialFolderPath(CSIDL_STARTUP) / "Dealtoken.lnk";
+    return GetSpecialFolderPath(CSIDL_STARTUP) / "DakeCoin.lnk";
 }
 
 bool GetStartOnSystemStartup()
 {
-    // check for Dealtoken.lnk
+    // check for DakeCoin.lnk
     return boost::filesystem::exists(StartupShortcutPath());
 }
 
@@ -380,7 +380,7 @@ boost::filesystem::path static GetAutostartDir()
 
 boost::filesystem::path static GetAutostartFilePath()
 {
-    return GetAutostartDir() / "Dealtoken.desktop";
+    return GetAutostartDir() / "DakeCoin.desktop";
 }
 
 bool GetStartOnSystemStartup()
@@ -418,10 +418,10 @@ bool SetStartOnSystemStartup(bool fAutoStart)
         boost::filesystem::ofstream optionFile(GetAutostartFilePath(), std::ios_base::out|std::ios_base::trunc);
         if (!optionFile.good())
             return false;
-        // Write a Dealtoken.desktop file to the autostart directory:
+        // Write a DakeCoin.desktop file to the autostart directory:
         optionFile << "[Desktop Entry]\n";
         optionFile << "Type=Application\n";
-        optionFile << "Name=Dealtoken\n";
+        optionFile << "Name=DakeCoin\n";
         optionFile << "Exec=" << pszExePath << " -min\n";
         optionFile << "Terminal=false\n";
         optionFile << "Hidden=false\n";
@@ -442,10 +442,10 @@ bool SetStartOnSystemStartup(bool fAutoStart) { return false; }
 HelpMessageBox::HelpMessageBox(QWidget *parent) :
     QMessageBox(parent)
 {
-    header = tr("Dealtoken-Qt") + " " + tr("version") + " " +
+    header = tr("DakeCoin-Qt") + " " + tr("version") + " " +
         QString::fromStdString(FormatFullVersion()) + "\n\n" +
         tr("Usage:") + "\n" +
-        "  Dealtoken-qt [" + tr("command-line options") + "]                     " + "\n";
+        "  DakeCoin-qt [" + tr("command-line options") + "]                     " + "\n";
 
     coreOptions = QString::fromStdString(HelpMessage(HMM_BITCOIN_QT));
 
@@ -454,7 +454,7 @@ HelpMessageBox::HelpMessageBox(QWidget *parent) :
         "  -min                   " + tr("Start minimized") + "\n" +
         "  -splash                " + tr("Show splash screen on startup (default: 1)") + "\n";
 
-    setWindowTitle(tr("Dealtoken-Qt"));
+    setWindowTitle(tr("DakeCoin-Qt"));
     setTextFormat(Qt::PlainText);
     // setMinimumWidth is ignored for QMessageBox so put in non-breaking spaces to make it wider.
     setText(header + QString(QChar(0x2003)).repeated(50));

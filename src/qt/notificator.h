@@ -2,7 +2,7 @@
 #define NOTIFICATOR_H
 
 #if defined(HAVE_CONFIG_H)
-#include "Dealtoken-config.h"
+#include "DakeCoin-config.h"
 #endif
 
 #include <QObject>

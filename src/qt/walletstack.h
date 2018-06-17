@@ -1,8 +1,8 @@
 /*
- * Qt4 Dealtoken GUI.
+ * Qt4 DakeCoin GUI.
  *
  * W.J. van der Laan 2011-2012
- * The Dealtoken Developers 2011-2013
+ * The DakeCoin Developers 2011-2013
  */
 #ifndef WALLETSTACK_H
 #define WALLETSTACK_H
@@ -11,7 +11,7 @@
 #include <QMap>
 #include <boost/shared_ptr.hpp>
 
-class DealtokenGUI;
+class DakeCoinGUI;
 class TransactionTableModel;
 class ClientModel;
 class WalletModel;
@@ -44,7 +44,7 @@ public:
     explicit WalletStack(QWidget *parent = 0);
     ~WalletStack();
 
-    void setDealtokenGUI(DealtokenGUI *gui) { this->gui = gui; }
+    void setDakeCoinGUI(DakeCoinGUI *gui) { this->gui = gui; }
 
     void setClientModel(ClientModel *clientModel) { this->clientModel = clientModel; }
 
@@ -58,7 +58,7 @@ public:
     void showOutOfSyncWarning(bool fShow);
 
 private:
-    DealtokenGUI *gui;
+    DakeCoinGUI *gui;
     ClientModel *clientModel;
     QMap<QString, WalletView*> mapWalletViews;
 

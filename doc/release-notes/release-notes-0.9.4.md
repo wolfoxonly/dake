@@ -1,39 +1,39 @@
-Dealtoken Core version 0.9.4 is now available from:
+DakeCoin Core version 0.9.4 is now available from:
 
-  https://Dealtoken.org/bin/0.9.4/
+  https://DakeCoin.org/bin/0.9.4/
 
 This is a new minor version release, bringing only bug fixes and updated
 translations. Upgrading to this release is recommended.
 
 Please report bugs using the issue tracker at github:
 
-  https://github.com/Dealtoken/Dealtoken/issues
+  https://github.com/DakeCoin/DakeCoin/issues
 
 How to Upgrade
 ===============
 
 If you are running an older version, shut it down. Wait until it has completely
 shut down (which might take a few minutes for older versions), then run the
-installer (on Windows) or just copy over /Applications/Dealtoken-Qt (on Mac) or
-Dealtokend/Dealtoken-qt (on Linux).
+installer (on Windows) or just copy over /Applications/DakeCoin-Qt (on Mac) or
+DakeCoind/DakeCoin-qt (on Linux).
 
 OpenSSL Warning
 ================
 
 OpenSSL 1.0.0p / 1.0.1k was recently released and is being pushed out by
 various operating system maintainers. Review by Gregory Maxwell determined that
-this update is incompatible with the Dealtoken system and could lead to consensus
+this update is incompatible with the DakeCoin system and could lead to consensus
 forks.
 
-Dealtoken Core released binaries from https://Dealtoken.org are unaffected,
+DakeCoin Core released binaries from https://DakeCoin.org are unaffected,
 as are any built with the gitian deterministic build system.
 
 However, if you are running either
 
-- The Ubuntu PPA from https://launchpad.net/~Dealtoken/+archive/ubuntu/Dealtoken
-- A third-party or self-compiled Dealtoken Core
+- The Ubuntu PPA from https://launchpad.net/~DakeCoin/+archive/ubuntu/DakeCoin
+- A third-party or self-compiled DakeCoin Core
 
-upgrade to Dealtoken Core 0.9.4, which includes a workaround, **before** updating
+upgrade to DakeCoin Core 0.9.4, which includes a workaround, **before** updating
 OpenSSL.
 
 The incompatibility is due to the OpenSSL update changing the
@@ -92,4 +92,4 @@ Thanks to who contributed to this release, at least:
 - Sergio Demian Lerner
 - Wladimir J. van der Laan
 
-As well as everyone that helped translating on [Transifex](https://www.transifex.com/projects/p/Dealtoken/).
+As well as everyone that helped translating on [Transifex](https://www.transifex.com/projects/p/DakeCoin/).

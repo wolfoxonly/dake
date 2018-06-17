@@ -16,7 +16,7 @@ class QUrl;
 class QAbstractItemView;
 QT_END_NAMESPACE
 
-/** Utility functions used by the Dealtoken Qt UI.
+/** Utility functions used by the DakeCoin Qt UI.
  */
 namespace GUIUtil
 {
@@ -24,17 +24,17 @@ namespace GUIUtil
     QString dateTimeStr(const QDateTime &datetime);
     QString dateTimeStr(qint64 nTime);
 
-    // Render Dealtoken addresses in monospace font
-    QFont DealtokenAddressFont();
+    // Render DakeCoin addresses in monospace font
+    QFont DakeCoinAddressFont();
 
     // Set up widgets for address and amounts
     void setupAddressWidget(QLineEdit *widget, QWidget *parent);
     void setupAmountWidget(QLineEdit *widget, QWidget *parent);
 
-    // Parse "Dealtoken:" URI into recipient object, return true on successful parsing
-    // See Dealtoken URI definition discussion here: https://Dealtokentalk.org/index.php?topic=33490.0
-    bool parseDealtokenURI(const QUrl &uri, SendCoinsRecipient *out);
-    bool parseDealtokenURI(QString uri, SendCoinsRecipient *out);
+    // Parse "DakeCoin:" URI into recipient object, return true on successful parsing
+    // See DakeCoin URI definition discussion here: https://DakeCointalk.org/index.php?topic=33490.0
+    bool parseDakeCoinURI(const QUrl &uri, SendCoinsRecipient *out);
+    bool parseDakeCoinURI(QString uri, SendCoinsRecipient *out);
 
     // HTML escaping for rich text controls
     QString HtmlEscape(const QString& str, bool fMultiLine=false);
@@ -96,7 +96,7 @@ namespace GUIUtil
     bool GetStartOnSystemStartup();
     bool SetStartOnSystemStartup(bool fAutoStart);
 
-    /** Help message for Dealtoken-Qt, shown with --help. */
+    /** Help message for DakeCoin-Qt, shown with --help. */
     class HelpMessageBox : public QMessageBox
     {
         Q_OBJECT

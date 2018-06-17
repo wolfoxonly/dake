@@ -1,4 +1,4 @@
-// Copyright (c) 2012-2017 The Dealtoken developers
+// Copyright (c) 2012-2017 The DakeCoin developers
 // Distributed under conditional MIT/X11 open source software license
 // see the accompanying file COPYING
 #ifndef PPCOIN_CHECKPOINTSYNC_H

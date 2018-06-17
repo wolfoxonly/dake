@@ -1,4 +1,4 @@
-// Copyright (c) 2009-2012 The Dealtoken Developers
+// Copyright (c) 2009-2012 The DakeCoin Developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 #ifndef __CRYPTER_H__

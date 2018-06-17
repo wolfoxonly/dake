@@ -4,7 +4,7 @@ require 'httparty'
 class CoinContainer
   def create(options = {})
     default_options = {
-      image: "Dealtoken/base",
+      image: "DakeCoin/base",
       shutdown_at_exit: true,
       delete_at_exit: false,
       remove_addr_after_shutdown: true,
@@ -73,14 +73,14 @@ class CoinContainer
       bash_cmd += "echo Environment:; env; "
     end
 
-    bash_cmd += "./Dealtokend " + cmd_args.join(" ")
+    bash_cmd += "./DakeCoind " + cmd_args.join(" ")
 
     if options[:remove_addr_after_shutdown]
-      bash_cmd += "; rm -f /root/.Dealtoken/testnet/peers.dat"
+      bash_cmd += "; rm -f /root/.DakeCoin/testnet/peers.dat"
     end
 
     if options[:remove_wallet_after_shutdown]
-      bash_cmd += "; rm /root/.Dealtoken/testnet/wallet.dat"
+      bash_cmd += "; rm /root/.DakeCoin/testnet/wallet.dat"
     end
 
     command = [

@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
-# Copyright (c) 2014-2017 The Dealtoken Core developers
+# Copyright (c) 2014-2017 The DakeCoin Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 """Test the wallet keypool and interaction with wallet encryption/locking."""
 
-from test_framework.test_framework import DealtokenTestFramework
+from test_framework.test_framework import DakeCoinTestFramework
 from test_framework.util import *
 
-class KeyPoolTest(DealtokenTestFramework):
+class KeyPoolTest(DakeCoinTestFramework):
     def set_test_params(self):
         self.num_nodes = 1
 

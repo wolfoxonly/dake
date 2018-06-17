@@ -1,28 +1,28 @@
 (note: this is a temporary file, to be added-to by anybody, and moved to
 release-notes at release time)
 
-Dealtoken Core version *version* is now available from:
+DakeCoin Core version *version* is now available from:
 
-  <https://Dealtoken.org/bin/Dealtoken-core-*version*/>
+  <https://DakeCoin.org/bin/DakeCoin-core-*version*/>
 
 This is a new major version release, including new features, various bugfixes
 and performance improvements, as well as updated translations.
 
 Please report bugs using the issue tracker at GitHub:
 
-  <https://github.com/Dealtoken/Dealtoken/issues>
+  <https://github.com/DakeCoin/DakeCoin/issues>
 
 To receive security and update notifications, please subscribe to:
 
-  <https://Dealtokencore.org/en/list/announcements/join/>
+  <https://DakeCoincore.org/en/list/announcements/join/>
 
 How to Upgrade
 ==============
 
 If you are running an older version, shut it down. Wait until it has completely
 shut down (which might take a few minutes for older versions), then run the
-installer (on Windows) or just copy over `/Applications/Dealtoken-Qt` (on Mac)
-or `Dealtokend`/`Dealtoken-qt` (on Linux).
+installer (on Windows) or just copy over `/Applications/DakeCoin-Qt` (on Mac)
+or `DakeCoind`/`DakeCoin-qt` (on Linux).
 
 The first time you run version 0.15.0, your chainstate database will be converted to a
 new format, which will take anywhere from a few minutes to half an hour,
@@ -47,10 +47,10 @@ processing the entire blockchain.
 Compatibility
 ==============
 
-Dealtoken Core is extensively tested on multiple operating systems using
+DakeCoin Core is extensively tested on multiple operating systems using
 the Linux kernel, macOS 10.8+, and Windows Vista and later. Windows XP is not supported.
 
-Dealtoken Core should also work on most other Unix-like systems but is not
+DakeCoin Core should also work on most other Unix-like systems but is not
 frequently tested on them.
 
 Notable changes
@@ -58,7 +58,7 @@ Notable changes
 
 GCC 4.8.x
 --------------
-The minimum version of GCC required to compile Dealtoken Core is now 4.8. No effort will be
+The minimum version of GCC required to compile DakeCoin Core is now 4.8. No effort will be
 made to support older versions of GCC. See discussion in issue #11732 for more information.
 
 HD-wallets by default
@@ -118,4 +118,4 @@ Credits
 Thanks to everyone who directly contributed to this release:
 
 
-As well as everyone that helped translating on [Transifex](https://www.transifex.com/projects/p/Dealtoken/).
+As well as everyone that helped translating on [Transifex](https://www.transifex.com/projects/p/DakeCoin/).

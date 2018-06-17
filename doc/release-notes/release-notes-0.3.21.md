@@ -1,19 +1,19 @@
-Binaries for Dealtoken version 0.3.21 are available at:
-  https://sourceforge.net/projects/Dealtoken/files/Dealtoken/Dealtoken-0.3.21/
+Binaries for DakeCoin version 0.3.21 are available at:
+  https://sourceforge.net/projects/DakeCoin/files/DakeCoin/DakeCoin-0.3.21/
 
 Changes and new features from the 0.3.20 release include:
 
-* Universal Plug and Play support.  Enable automatic opening of a port for incoming connections by running Dealtoken or Dealtokend with the - -upnp=1 command line switch or using the Options dialog box.
+* Universal Plug and Play support.  Enable automatic opening of a port for incoming connections by running DakeCoin or DakeCoind with the - -upnp=1 command line switch or using the Options dialog box.
 
-* Support for full-precision Dealtoken amounts.  You can now send, and Dealtoken will display, Dealtoken amounts smaller than 0.01.  However, sending fewer than 0.01 Dealtokens still requires a 0.01 Dealtoken fee (so you can send 1.0001 Dealtokens without a fee, but you will be asked to pay a fee if you try to send 0.0001).
+* Support for full-precision DakeCoin amounts.  You can now send, and DakeCoin will display, DakeCoin amounts smaller than 0.01.  However, sending fewer than 0.01 DakeCoins still requires a 0.01 DakeCoin fee (so you can send 1.0001 DakeCoins without a fee, but you will be asked to pay a fee if you try to send 0.0001).
 
-* A new method of finding Dealtoken nodes to connect with, via DNS A records. Use the -dnsseed option to enable.
+* A new method of finding DakeCoin nodes to connect with, via DNS A records. Use the -dnsseed option to enable.
 
-For developers, changes to Dealtoken's remote-procedure-call API:
+For developers, changes to DakeCoin's remote-procedure-call API:
 
-* New rpc command "sendmany" to send Dealtokens to more than one address in a single transaction.
+* New rpc command "sendmany" to send DakeCoins to more than one address in a single transaction.
 
-* Several bug fixes, including a serious intermittent bug that would sometimes cause Dealtokend to stop accepting rpc requests. 
+* Several bug fixes, including a serious intermittent bug that would sometimes cause DakeCoind to stop accepting rpc requests. 
 
 * -logtimestamps option, to add a timestamp to each line in debug.log.
 

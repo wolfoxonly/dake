@@ -1,4 +1,4 @@
-# Copyright (c) 2016 The Dealtoken Core developers
+# Copyright (c) 2016 The DakeCoin Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -16,12 +16,12 @@ osx=true
 SIGNER=
 VERSION=
 commit=false
-url=https://github.com/Dealtoken/Dealtoken
+url=https://github.com/DakeCoin/DakeCoin
 proc=2
 mem=2000
 lxc=true
 osslTarUrl=http://downloads.sourceforge.net/project/osslsigncode/osslsigncode/osslsigncode-1.7.1.tar.gz
-osslPatchUrl=https://Dealtokencore.org/cfields/osslsigncode-Backports-to-1.7.1.patch
+osslPatchUrl=https://DakeCoincore.org/cfields/osslsigncode-Backports-to-1.7.1.patch
 scriptName=$(basename -- "$0")
 signProg="gpg --detach-sign"
 commitFiles=true
@@ -30,7 +30,7 @@ commitFiles=true
 read -d '' usage <<- EOF
 Usage: $scriptName [-c|u|v|b|s|B|o|h|j|m|] signer version
 
-Run this script from the directory containing the Dealtoken, gitian-builder, gitian.sigs, and Dealtoken-detached-sigs.
+Run this script from the directory containing the DakeCoin, gitian-builder, gitian.sigs, and DakeCoin-detached-sigs.
 
 Arguments:
 signer          GPG signer to sign each build assert file
@@ -38,7 +38,7 @@ version		Version number, commit, or branch to build. If building a commit or bra
 
 Options:
 -c|--commit	Indicate that the version argument is for a commit or branch
--u|--url	Specify the URL of the repository. Default is https://github.com/Dealtoken/Dealtoken
+-u|--url	Specify the URL of the repository. Default is https://github.com/DakeCoin/DakeCoin
 -v|--verify 	Verify the Gitian build
 -b|--build	Do a Gitian build
 -s|--sign	Make signed binaries for Windows and Mac OSX
@@ -229,8 +229,8 @@ echo ${COMMIT}
 if [[ $setup = true ]]
 then
     sudo apt-get install ruby apache2 git apt-cacher-ng python-vm-builder qemu-kvm qemu-utils
-    git clone https://github.com/Dealtoken-core/gitian.sigs.git
-    git clone https://github.com/Dealtoken-core/Dealtoken-detached-sigs.git
+    git clone https://github.com/DakeCoin-core/gitian.sigs.git
+    git clone https://github.com/DakeCoin-core/DakeCoin-detached-sigs.git
     git clone https://github.com/devrandom/gitian-builder.git
     pushd ./gitian-builder
     if [[ -n "$USE_LXC" ]]
@@ -244,7 +244,7 @@ then
 fi
 
 # Set up build
-pushd ./Dealtoken
+pushd ./DakeCoin
 git fetch
 git checkout ${COMMIT}
 popd
@@ -253,7 +253,7 @@ popd
 if [[ $build = true ]]
 then
 	# Make output folder
-	mkdir -p ./Dealtoken-binaries/${VERSION}
+	mkdir -p ./DakeCoin-binaries/${VERSION}
 	
 	# Build Dependencies
 	echo ""
@@ -263,7 +263,7 @@ then
 	mkdir -p inputs
 	wget -N -P inputs $osslPatchUrl
 	wget -N -P inputs $osslTarUrl
-	make -C ../Dealtoken/depends download SOURCES_PATH=`pwd`/cache/common
+	make -C ../DakeCoin/depends download SOURCES_PATH=`pwd`/cache/common
 
 	# Linux
 	if [[ $linux = true ]]
@@ -271,9 +271,9 @@ then
             echo ""
 	    echo "Compiling ${VERSION} Linux"
 	    echo ""
-	    ./bin/gbuild -j ${proc} -m ${mem} --commit Dealtoken=${COMMIT} --url Dealtoken=${url} ../Dealtoken/contrib/gitian-descriptors/gitian-linux.yml
-	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-linux --destination ../gitian.sigs/ ../Dealtoken/contrib/gitian-descriptors/gitian-linux.yml
-	    mv build/out/Dealtoken-*.tar.gz build/out/src/Dealtoken-*.tar.gz ../Dealtoken-binaries/${VERSION}
+	    ./bin/gbuild -j ${proc} -m ${mem} --commit DakeCoin=${COMMIT} --url DakeCoin=${url} ../DakeCoin/contrib/gitian-descriptors/gitian-linux.yml
+	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-linux --destination ../gitian.sigs/ ../DakeCoin/contrib/gitian-descriptors/gitian-linux.yml
+	    mv build/out/DakeCoin-*.tar.gz build/out/src/DakeCoin-*.tar.gz ../DakeCoin-binaries/${VERSION}
 	fi
 	# Windows
 	if [[ $windows = true ]]
@@ -281,10 +281,10 @@ then
 	    echo ""
 	    echo "Compiling ${VERSION} Windows"
 	    echo ""
-	    ./bin/gbuild -j ${proc} -m ${mem} --commit Dealtoken=${COMMIT} --url Dealtoken=${url} ../Dealtoken/contrib/gitian-descriptors/gitian-win.yml
-	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-win-unsigned --destination ../gitian.sigs/ ../Dealtoken/contrib/gitian-descriptors/gitian-win.yml
-	    mv build/out/Dealtoken-*-win-unsigned.tar.gz inputs/Dealtoken-win-unsigned.tar.gz
-	    mv build/out/Dealtoken-*.zip build/out/Dealtoken-*.exe ../Dealtoken-binaries/${VERSION}
+	    ./bin/gbuild -j ${proc} -m ${mem} --commit DakeCoin=${COMMIT} --url DakeCoin=${url} ../DakeCoin/contrib/gitian-descriptors/gitian-win.yml
+	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-win-unsigned --destination ../gitian.sigs/ ../DakeCoin/contrib/gitian-descriptors/gitian-win.yml
+	    mv build/out/DakeCoin-*-win-unsigned.tar.gz inputs/DakeCoin-win-unsigned.tar.gz
+	    mv build/out/DakeCoin-*.zip build/out/DakeCoin-*.exe ../DakeCoin-binaries/${VERSION}
 	fi
 	# Mac OSX
 	if [[ $osx = true ]]
@@ -292,10 +292,10 @@ then
 	    echo ""
 	    echo "Compiling ${VERSION} Mac OSX"
 	    echo ""
-	    ./bin/gbuild -j ${proc} -m ${mem} --commit Dealtoken=${COMMIT} --url Dealtoken=${url} ../Dealtoken/contrib/gitian-descriptors/gitian-osx.yml
-	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-osx-unsigned --destination ../gitian.sigs/ ../Dealtoken/contrib/gitian-descriptors/gitian-osx.yml
-	    mv build/out/Dealtoken-*-osx-unsigned.tar.gz inputs/Dealtoken-osx-unsigned.tar.gz
-	    mv build/out/Dealtoken-*.tar.gz build/out/Dealtoken-*.dmg ../Dealtoken-binaries/${VERSION}
+	    ./bin/gbuild -j ${proc} -m ${mem} --commit DakeCoin=${COMMIT} --url DakeCoin=${url} ../DakeCoin/contrib/gitian-descriptors/gitian-osx.yml
+	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-osx-unsigned --destination ../gitian.sigs/ ../DakeCoin/contrib/gitian-descriptors/gitian-osx.yml
+	    mv build/out/DakeCoin-*-osx-unsigned.tar.gz inputs/DakeCoin-osx-unsigned.tar.gz
+	    mv build/out/DakeCoin-*.tar.gz build/out/DakeCoin-*.dmg ../DakeCoin-binaries/${VERSION}
 	fi
 	popd
 
@@ -322,27 +322,27 @@ then
 	echo ""
 	echo "Verifying v${VERSION} Linux"
 	echo ""
-	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-linux ../Dealtoken/contrib/gitian-descriptors/gitian-linux.yml
+	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-linux ../DakeCoin/contrib/gitian-descriptors/gitian-linux.yml
 	# Windows
 	echo ""
 	echo "Verifying v${VERSION} Windows"
 	echo ""
-	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-win-unsigned ../Dealtoken/contrib/gitian-descriptors/gitian-win.yml
+	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-win-unsigned ../DakeCoin/contrib/gitian-descriptors/gitian-win.yml
 	# Mac OSX	
 	echo ""
 	echo "Verifying v${VERSION} Mac OSX"
 	echo ""	
-	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-unsigned ../Dealtoken/contrib/gitian-descriptors/gitian-osx.yml
+	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-unsigned ../DakeCoin/contrib/gitian-descriptors/gitian-osx.yml
 	# Signed Windows
 	echo ""
 	echo "Verifying v${VERSION} Signed Windows"
 	echo ""
-	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-signed ../Dealtoken/contrib/gitian-descriptors/gitian-osx-signer.yml
+	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-signed ../DakeCoin/contrib/gitian-descriptors/gitian-osx-signer.yml
 	# Signed Mac OSX
 	echo ""
 	echo "Verifying v${VERSION} Signed Mac OSX"
 	echo ""
-	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-signed ../Dealtoken/contrib/gitian-descriptors/gitian-osx-signer.yml	
+	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-signed ../DakeCoin/contrib/gitian-descriptors/gitian-osx-signer.yml	
 	popd
 fi
 
@@ -357,10 +357,10 @@ then
 	    echo ""
 	    echo "Signing ${VERSION} Windows"
 	    echo ""
-	    ./bin/gbuild -i --commit signature=${COMMIT} ../Dealtoken/contrib/gitian-descriptors/gitian-win-signer.yml
-	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-win-signed --destination ../gitian.sigs/ ../Dealtoken/contrib/gitian-descriptors/gitian-win-signer.yml
-	    mv build/out/Dealtoken-*win64-setup.exe ../Dealtoken-binaries/${VERSION}
-	    mv build/out/Dealtoken-*win32-setup.exe ../Dealtoken-binaries/${VERSION}
+	    ./bin/gbuild -i --commit signature=${COMMIT} ../DakeCoin/contrib/gitian-descriptors/gitian-win-signer.yml
+	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-win-signed --destination ../gitian.sigs/ ../DakeCoin/contrib/gitian-descriptors/gitian-win-signer.yml
+	    mv build/out/DakeCoin-*win64-setup.exe ../DakeCoin-binaries/${VERSION}
+	    mv build/out/DakeCoin-*win32-setup.exe ../DakeCoin-binaries/${VERSION}
 	fi
 	# Sign Mac OSX
 	if [[ $osx = true ]]
@@ -368,9 +368,9 @@ then
 	    echo ""
 	    echo "Signing ${VERSION} Mac OSX"
 	    echo ""
-	    ./bin/gbuild -i --commit signature=${COMMIT} ../Dealtoken/contrib/gitian-descriptors/gitian-osx-signer.yml
-	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-osx-signed --destination ../gitian.sigs/ ../Dealtoken/contrib/gitian-descriptors/gitian-osx-signer.yml
-	    mv build/out/Dealtoken-osx-signed.dmg ../Dealtoken-binaries/${VERSION}/Dealtoken-${VERSION}-osx.dmg
+	    ./bin/gbuild -i --commit signature=${COMMIT} ../DakeCoin/contrib/gitian-descriptors/gitian-osx-signer.yml
+	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-osx-signed --destination ../gitian.sigs/ ../DakeCoin/contrib/gitian-descriptors/gitian-osx-signer.yml
+	    mv build/out/DakeCoin-osx-signed.dmg ../DakeCoin-binaries/${VERSION}/DakeCoin-${VERSION}-osx.dmg
 	fi
 	popd
 

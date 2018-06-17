@@ -13,7 +13,7 @@ Construct a linear, no-fork, best version of the blockchain.
 
 ### [Qos](/contrib/qos) ###
 
-A Linux bash script that will set up traffic control (tc) to limit the outgoing bandwidth for connections to the Dealtoken network. This means one can have an always-on Dealtokend instance running, and another local Dealtokend/Dealtoken-qt instance which connects to this node and receives blocks from it.
+A Linux bash script that will set up traffic control (tc) to limit the outgoing bandwidth for connections to the DakeCoin network. This means one can have an always-on DakeCoind instance running, and another local DakeCoind/DakeCoin-qt instance which connects to this node and receives blocks from it.
 
 ### [Seeds](/contrib/seeds) ###
 Utility to generate the pnSeed[] array that is compiled into the client.
@@ -22,20 +22,20 @@ Build Tools and Keys
 ---------------------
 
 ### [Debian](/contrib/debian) ###
-Contains files used to package Dealtokend/Dealtoken-qt
-for Debian-based Linux systems. If you compile Dealtokend/Dealtoken-qt yourself, there are some useful files here.
+Contains files used to package DakeCoind/DakeCoin-qt
+for Debian-based Linux systems. If you compile DakeCoind/DakeCoin-qt yourself, there are some useful files here.
 
 ### [Gitian-descriptors](/contrib/gitian-descriptors) ###
-Files used during the gitian build process. For more information about gitian, see the [the Dealtoken Core documentation repository](https://github.com/Dealtoken-core/docs).
+Files used during the gitian build process. For more information about gitian, see the [the DakeCoin Core documentation repository](https://github.com/DakeCoin-core/docs).
 
 ### [Gitian-keys](/contrib/gitian-keys)
-PGP keys used for signing Dealtoken Core [Gitian release](/doc/release-process.md) results.
+PGP keys used for signing DakeCoin Core [Gitian release](/doc/release-process.md) results.
 
 ### [MacDeploy](/contrib/macdeploy) ###
 Scripts and notes for Mac builds. 
 
 ### [RPM](/contrib/rpm) ###
-RPM spec file for building Dealtoken-core on RPM based distributions.
+RPM spec file for building DakeCoin-core on RPM based distributions.
 
 ### [Gitian-build](/contrib/gitian-build.sh) ###
 Script for running full Gitian builds.
@@ -44,7 +44,7 @@ Test and Verify Tools
 ---------------------
 
 ### [TestGen](/contrib/testgen) ###
-Utilities to generate test vectors for the data-driven Dealtoken tests.
+Utilities to generate test vectors for the data-driven DakeCoin tests.
 
 ### [Verify Binaries](/contrib/verifybinaries) ###
-This script attempts to download and verify the signature file SHA256SUMS.asc from Dealtoken.org.
+This script attempts to download and verify the signature file SHA256SUMS.asc from DakeCoin.org.

@@ -1,6 +1,6 @@
 ### TestGen ###
 
-Utilities to generate test vectors for the data-driven Dealtoken tests.
+Utilities to generate test vectors for the data-driven DakeCoin tests.
 
 Usage: 
 

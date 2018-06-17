@@ -1,4 +1,4 @@
-// Copyright (c) 2012 The Dealtoken developers
+// Copyright (c) 2012 The DakeCoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 #include <string>
@@ -6,7 +6,7 @@
 #include "version.h"
 
 // Name of client reported in the 'version' message. Report the same name
-// for both Dealtokend and Dealtoken-qt, to make it harder for attackers to
+// for both DakeCoind and DakeCoin-qt, to make it harder for attackers to
 // target servers or GUI users specifically.
 const std::string CLIENT_NAME("Satoshi");
 
@@ -47,9 +47,9 @@ const std::string CLIENT_NAME("Satoshi");
 
 #ifndef BUILD_DESC
 #    ifdef GIT_COMMIT_ID
-#        define BUILD_DESC BUILD_DESC_FROM_COMMIT(DEALTOKEN_VERSION_MAJOR, DEALTOKEN_VERSION_MINOR, DEALTOKEN_VERSION_REVISION, DEALTOKEN_VERSION_BUILD, GIT_COMMIT_ID)
+#        define BUILD_DESC BUILD_DESC_FROM_COMMIT(DAKECOIN_VERSION_MAJOR, DAKECOIN_VERSION_MINOR, DAKECOIN_VERSION_REVISION, DAKECOIN_VERSION_BUILD, GIT_COMMIT_ID)
 #    else
-#        define BUILD_DESC BUILD_DESC_FROM_UNKNOWN(DEALTOKEN_VERSION_MAJOR, DEALTOKEN_VERSION_MINOR, DEALTOKEN_VERSION_REVISION, DEALTOKEN_VERSION_BUILD)
+#        define BUILD_DESC BUILD_DESC_FROM_UNKNOWN(DAKECOIN_VERSION_MAJOR, DAKECOIN_VERSION_MINOR, DAKECOIN_VERSION_REVISION, DAKECOIN_VERSION_BUILD)
 #    endif
 #endif
 
