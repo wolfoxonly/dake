@@ -83,7 +83,7 @@ static const int fHaveUPnP = false;
 #endif
 
 //static const uint256 hashGenesisBlockOfficial("0x0000000032fe677166d54963b62a4677d8957e87c508eaa4fd7eb1c880cd27e3");
-static const uint256 hashGenesisBlockOfficial("0x0000005f968479895971d713694c1986bd02d8467960cbd611774f83b022cf5c");//<coingo.vip>
+static const uint256 hashGenesisBlockOfficial("0x000000dd656c5e2e29578302b6f5aad28dfceb2484ebb29e007e05f967717124");//<coingo.vip>
 static const uint256 hashGenesisBlockTestNet("0x00000001f757bb737f6596503e17cd17b0658ce630cc727c0cca81aec47c9f06");
 
 static const int64 nMaxClockDrift = 2 * 60 * 60;        // two hours

@@ -3404,7 +3404,7 @@ bool InitBlockIndex() {
         block.nTime    = 1529233474;// 1345084287;
         block.nBits    = bnProofOfWorkLimit.GetCompact();
       //  block.nNonce   = 2179302059u;
-        block.nNonce = ByteReverse(55792599);//<coingo.vip>
+        block.nNonce = ByteReverse(10893457);//<coingo.vip>
         if (fTestNet)
         {
             block.nTime    = 1345090000;
@@ -3441,7 +3441,7 @@ bool InitBlockIndex() {
          uint256 hashTarget = CBigNum().SetCompact(block.nBits).getuint256();
          uint256 hashbuf[2];
          uint256& hashdata = *alignup<16>(hashbuf);
-         while(true)//<coingo.vip>
+         while(false)//<coingo.vip>
          {
              unsigned int nHashesDone = 0;
              unsigned int nNonceFound;
@@ -3459,11 +3459,11 @@ bool InitBlockIndex() {
                  {
                      // Found a solution
                       printf("Found a solution ooooooooooooooooooooooookkkkk \n" );
-                      printf("block.nNonce 11111111111111 coingo.vip:%d \n" ,block.nNonce);
-                       printf("nNonceFound 11111111111111 coingo.vip:%d \n" ,nNonceFound);
+                    //  printf("block.nNonce 11111111111111 coingo.vip:%d \n" ,block.nNonce);
+                      printf("nNonceFound 11111111111111 coingo.vip:%d \n" ,nNonceFound);
                       block.nNonce = ByteReverse(nNonceFound);
-                      printf("block.nNonce 22222222 coingo.vip:%d \n" ,block.nNonce);
-                       printf("hashdata 33333 coingo.vip:%s\n", hashdata.ToString().c_str());
+                    //  printf("block.nNonce 22222222 coingo.vip:%d \n" ,block.nNonce);
+                    //   printf("hashdata 33333 coingo.vip:%s\n", hashdata.ToString().c_str());
                       printf("GetHash 44444 coingo.vip:%s\n" ,block.GetHash().ToString().c_str());
                    
                    
@@ -3481,14 +3481,14 @@ bool InitBlockIndex() {
 
 
 
- printf("block.nNonce 11111111111111 coingo.vip:%d \n" ,block.nNonce);
+// printf("block.nNonce 11111111111111 coingo.vip:%d \n" ,block.nNonce);
         //// debug print
         uint256 hash = block.GetHash();
-        printf("block hash %s\n", hash.ToString().c_str());
-        printf("hashGenesisBlock_offical %s\n", hashGenesisBlock.ToString().c_str());
+    //    printf("block hash %s\n", hash.ToString().c_str());
+    //    printf("hashGenesisBlock_offical %s\n", hashGenesisBlock.ToString().c_str());
         printf("hashMerkleRoot %s\n", block.hashMerkleRoot.ToString().c_str());
         printf("block.nBits 2222222222222222222 coingo.vip:%d \n" ,block.nBits);
-        assert(block.hashMerkleRoot == uint256("0x0a10a910f9b79e998b756d258a57e2d25b9bab2f183e3ab5a6051deb48be14a6"));
+        assert(block.hashMerkleRoot == uint256("0xf83b0208a18c129cdcd564aba299548370ae138b9d3913102f4f23ab3eb26dce"));//<coingo.vip>
        // assert(block.hashMerkleRoot == uint256("0xece2718fca52c7c1c233fb9add9a7a4866794d8043fe75af407a9c59fa56cc79"));
         block.print();
         //assert(hash == hashGenesisBlock);
