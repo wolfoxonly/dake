@@ -12,8 +12,8 @@ export TRAVIS_JOB_NUMBER=JobNo.1
 
 # Matrix
 #matrix="Win32Gui"
-#matrix="DakeCoind"
-matrix="Cross-Mac"
+matrix="DakeCoind"
+#matrix="Cross-Mac"
 
 # For `matrix="Cross-Mac"'
 # sudo pip install ez_setup
@@ -36,7 +36,7 @@ export CCACHE_SIZE=100M
 export CCACHE_TEMPDIR=/tmp/.ccache-temp
 export CCACHE_COMPRESS=1
 export BASE_OUTDIR=$PWD/built
-export SDK_URL=https://DakeCoincore.org/depends-sources/sdks
+export SDK_URL=https://bitcoincore.org/depends-sources/sdks
 export PYTHON_DEBUG=1
 export WINEDEBUG=fixme-all
 

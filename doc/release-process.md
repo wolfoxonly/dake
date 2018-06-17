@@ -84,7 +84,7 @@ Ensure gitian-builder is up-to-date:
 
     pushd ./gitian-builder
     mkdir -p inputs
-    wget -P inputs https://DakeCoincore.org/cfields/osslsigncode-Backports-to-1.7.1.patch
+    wget -P inputs https://bitcoincore.org/cfields/osslsigncode-Backports-to-1.7.1.patch
     wget -P inputs http://downloads.sourceforge.net/project/osslsigncode/osslsigncode/osslsigncode-1.7.1.tar.gz
     popd
 
@@ -292,9 +292,9 @@ DakeCoin.org (see below for DakeCoin.org update instructions).
 
   - DakeCoin-dev and DakeCoin-core-dev mailing list
 
-  - DakeCoin Core announcements list https://DakeCoincore.org/en/list/announcements/join/
+  - DakeCoin Core announcements list https://bitcoincore.org/en/list/announcements/join/
 
-  - DakeCoincore.org blog post
+  - bitcoincore.org blog post
 
   - Update title of #DakeCoin on Freenode IRC
 
