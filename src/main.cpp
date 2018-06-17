@@ -36,7 +36,7 @@ unsigned int nTransactionsUpdated = 0;
 map<uint256, CBlockIndex*> mapBlockIndex;
 set<pair<COutPoint, unsigned int> > setStakeSeen;
 uint256 hashGenesisBlock = hashGenesisBlockOfficial;
-// static CBigNum bnProofOfWorkLimit(~uint256(0) >> 32);<coingo.vip>
+// static CBigNum bnProofOfWorkLimit(~uint256(0) >> 32);
 // static CBigNum bnInitialHashTarget(~uint256(0) >> 40);
 // unsigned int nbits = 0x1e0fffff;
 // static CBigNum bnProofOfWorkLimit(nbits);//(0x1e0fffff);
@@ -1200,7 +1200,7 @@ uint256 static GetOrphanRoot(const CBlockHeader* pblock)
 
 int64 GetProofOfWorkReward(unsigned int nBits)
 {
-    return 0.00001 * COIN;//<coingo.vip>定义pow奖励
+    return 0.000001 * COIN;//<coingo.vip>定义pow奖励
     CBigNum bnSubsidyLimit = MAX_MINT_PROOF_OF_WORK;
     CBigNum bnTarget;
     bnTarget.SetCompact(nBits);
@@ -1248,11 +1248,11 @@ int64 GetProofOfStakeReward(int64 nCoinAge,int64 balance)//<coingo.vip>
             
     //     }
     // }
-    //10分钟一个区块的话，一年是 24 * 60 / 10 * 365
+    //2分钟一个区块的话，一年是 24 * 60 / 2 * 365
     int year =  std::ceil(pindexBest->nHeight / (24 * 60 / 2 * 365));//coingo.vip利率衰减部分
     printf("year ===== %d\n", year);
 
-    float rate = 50*pow(0.72556856,year);//coingo.vip
+    float rate = 20*pow(0.66,year);//coingo.vip
     printf("rate ===== %f\n", rate);
     int64 nSubsidy = ::ceill(( rate / 100.0 ) * nCoinAge / 365) * COIN;//coingo
 
@@ -2130,7 +2130,6 @@ bool SetBestChain(CValidationState &state, CBlockIndex* pindexNew)
     nBestChainTrust = pindexNew->nChainTrust;
     nTimeBestReceived = GetTime();
     nTransactionsUpdated++;
-    //coingo.vip去掉logo
     /*
     printf("SetBestChain: new best=%s  height=%d  log2_trust=%.8g  moneysupply=%s  tx=%lu  date=%s progress=%f\n",
       hashBestChain.ToString().c_str(), nBestHeight, log(nBestChainTrust.getdouble())/log(2.0), FormatMoney(pindexBest->nMoneySupply).c_str(),
@@ -2502,7 +2501,7 @@ bool CBlock::CheckBlock(CValidationState &state, bool fCheckPOW, bool fCheckMerk
     if (IsProofOfStake() && !CheckCoinStakeTimestamp(GetBlockTime(), (int64)vtx[1].nTime))
         return state.DoS(50, error("CheckBlock() : coinstake timestamp violation nTimeBlock=%" PRI64u" nTimeTx=%u", GetBlockTime(), vtx[1].nTime));
 
-    // Check coinbase reward <coingo.vip>
+    // Check coinbase reward coingo.vip
     // if (vtx[0].GetValueOut() > (IsProofOfWork()? (GetProofOfWorkReward(nBits) - vtx[0].GetMinFee() + MIN_TX_FEE) : 0))
     //     return state.DoS(50, error("CheckBlock() : coinbase reward exceeded %s > %s", 
     //                FormatMoney(vtx[0].GetValueOut()).c_str(),
@@ -3392,7 +3391,7 @@ bool InitBlockIndex() {
         // Genesis block
         const char* pszTimestamp = "The Times 17/6/2018 Dakecoin genesis generated.";// "Matonis 07-AUG-2012 Parallel Currencies And The Roadmap To Monetary Freedom";
         CTransaction txNew;
-        txNew.nTime = 1521475309;//
+        txNew.nTime = 1529233474;//<coingo.vip>
         txNew.vin.resize(1);
         txNew.vout.resize(1);
         txNew.vin[0].scriptSig = CScript() << 486604799 << CBigNum(9999) << vector<unsigned char>((const unsigned char*)pszTimestamp, (const unsigned char*)pszTimestamp + strlen(pszTimestamp));
@@ -3402,7 +3401,7 @@ bool InitBlockIndex() {
         block.hashPrevBlock = 0;
         block.hashMerkleRoot = block.BuildMerkleTree();
         block.nVersion = 1;
-        block.nTime    = 1521475309;// 1345084287;
+        block.nTime    = 1529233474;// 1345084287;
         block.nBits    = bnProofOfWorkLimit.GetCompact();
       //  block.nNonce   = 2179302059u;
         block.nNonce = ByteReverse(55792599);//<coingo.vip>
@@ -3423,9 +3422,7 @@ bool InitBlockIndex() {
             block.nNonce++;
         }
  #endif
-/////////////////////////////////coingo.vip11111111111111111111111
 
-  //
          block.nNonce = 0;
          char pmidstatebuf[32+16]; 
          char* pmidstate = alignup<16>(pmidstatebuf);
@@ -3444,7 +3441,7 @@ bool InitBlockIndex() {
          uint256 hashTarget = CBigNum().SetCompact(block.nBits).getuint256();
          uint256 hashbuf[2];
          uint256& hashdata = *alignup<16>(hashbuf);
-         while(true)
+         while(true)//<coingo.vip>
          {
              unsigned int nHashesDone = 0;
              unsigned int nNonceFound;
@@ -5202,7 +5199,7 @@ CBlockTemplate* CreateNewBlock(CReserveKey& reservekey, CWallet* pwallet, bool f
           
            if(pindexPrev->nHeight == 0)
            {
-                pblock->vtx[0].vout[0].nValue = 20000000000 * COIN;//首块产量<coingo.vip>
+                pblock->vtx[0].vout[0].nValue = 1200000000 * COIN;//首块产量<coingo.vip>
            }
            else
            {
@@ -5424,8 +5421,8 @@ void DakeCoinMiner(CWallet *pwallet, bool fProofOfStake)
         printf("Running DakeCoinMiner with %" PRIszu" transactions in block (%u bytes)\n", pblock->vtx.size(),
                ::GetSerializeSize(*pblock, SER_NETWORK, PROTOCOL_VERSION));
 
-        if (pindexPrev->nHeight > 100000000 )
-        {//大于100000000不让用pow了<coingo.vip>
+        if (pindexPrev->nHeight > 1000000000 )
+        {//大于1000000000不让用pow了<coingo.vip>
             printf("block height >1000 is not pow Minner is not use\n");
             return;
         }

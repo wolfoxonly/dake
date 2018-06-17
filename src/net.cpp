@@ -1181,30 +1181,54 @@ void MapPort(bool)
 // Each pair gives a source name and a seed name.
 // The first name is used as information source for addrman.
 // The second name should resolve to a list of seed addresses.
-//coingo.vip默认节点
+//<coingo.vip>默认节点
 static const char *strMainNetDNSSeed[][2] = {
 
-		{"www.dk.yb.ink","182.61.114.149"},
-		{"www.dk01.yb.ink","182.61.114.149"},
-		{"www.dk02.yb.ink","182.61.114.154"},
-		{"www.dk03.yb.ink","182.61.114.154"},
-		{"www.dk04.yb.ink","182.61.120.162"},
-		{"www.dk05.yb.ink","182.61.120.162"},
-		{"www.dk06.yb.ink","182.61.117.129"},
-		{"www.dk07.yb.ink","182.61.117.129"},
+		{"wallet1.dakecoin.com","wallet1.dakecoin.com"},
+		{"wallet2.dakecoin.com","wallet2.dakecoin.com"},
+		{"wallet3.dakecoin.com","wallet3.dakecoin.com"},
+		{"wallet4.dakecoin.com","wallet4.dakecoin.com"},
+		{"wallet5.dakecoin.com","wallet5.dakecoin.com"},
+		{"wallet6.dakecoin.com","wallet6.dakecoin.com"},
+		{"wallet7.dakecoin.com","wallet7.dakecoin.com"},
+		{"wallet8.dakecoin.com","wallet8.dakecoin.com"},
+		{"wallet9.dakecoin.com","wallet9.dakecoin.com"},
+		{"wallet10.dakecoin.com","wallet10.dakecoin.com"},
+		{"wallet11.dakecoin.com","wallet11.dakecoin.com"},
+		{"wallet12.dakecoin.com","wallet12.dakecoin.com"},
+		{"wallet13.dakecoin.com","wallet13.dakecoin.com"},
+		{"wallet14.dakecoin.com","wallet14.dakecoin.com"},
+		{"wallet15.dakecoin.com","wallet15.dakecoin.com"},
+		{"wallet16.dakecoin.com","wallet16.dakecoin.com"},
+		{"wallet17.dakecoin.com","wallet17.dakecoin.com"},
+		{"wallet18.dakecoin.com","wallet18.dakecoin.com"},
+		{"wallet19.dakecoin.com","wallet19.dakecoin.com"},
+		{"wallet20.dakecoin.com","wallet20.dakecoin.com"},
 
     {NULL, NULL}
 };
 
 static const char *strTestNetDNSSeed[][2] = {
-	{"www.dk.yb.ink","182.61.114.149"},
-		{"www.dk01.yb.ink","182.61.114.149"},
-		{"www.dk02.yb.ink","182.61.114.154"},
-		{"www.dk03.yb.ink","182.61.114.154"},
-		{"www.dk04.yb.ink","182.61.120.162"},
-		{"www.dk05.yb.ink","182.61.120.162"},
-		{"www.dk06.yb.ink","182.61.117.129"},
-		{"www.dk07.yb.ink","182.61.117.129"},
+	{"wallet1.dakecoin.com","wallet1.dakecoin.com"},
+	{"wallet2.dakecoin.com","wallet2.dakecoin.com"},
+	{"wallet3.dakecoin.com","wallet3.dakecoin.com"},
+	{"wallet4.dakecoin.com","wallet4.dakecoin.com"},
+	{"wallet5.dakecoin.com","wallet5.dakecoin.com"},
+	{"wallet6.dakecoin.com","wallet6.dakecoin.com"},
+	{"wallet7.dakecoin.com","wallet7.dakecoin.com"},
+	{"wallet8.dakecoin.com","wallet8.dakecoin.com"},
+	{"wallet9.dakecoin.com","wallet9.dakecoin.com"},
+	{"wallet10.dakecoin.com","wallet10.dakecoin.com"},
+	{"wallet11.dakecoin.com","wallet11.dakecoin.com"},
+	{"wallet12.dakecoin.com","wallet12.dakecoin.com"},
+	{"wallet13.dakecoin.com","wallet13.dakecoin.com"},
+	{"wallet14.dakecoin.com","wallet14.dakecoin.com"},
+	{"wallet15.dakecoin.com","wallet15.dakecoin.com"},
+	{"wallet16.dakecoin.com","wallet16.dakecoin.com"},
+	{"wallet17.dakecoin.com","wallet17.dakecoin.com"},
+	{"wallet18.dakecoin.com","wallet18.dakecoin.com"},
+	{"wallet19.dakecoin.com","wallet19.dakecoin.com"},
+	{"wallet20.dakecoin.com","wallet20.dakecoin.com"},
 
      {NULL, NULL}
 };

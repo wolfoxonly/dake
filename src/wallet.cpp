@@ -1285,7 +1285,7 @@ bool CWallet::CreateTransaction(const vector<pair<CScript, int64> >& vecSend,
                     nFeeRet += nMoveToFee;
                 }
 
-                // ppcoin: sub-cent change is moved to fee <coingo.vip>
+                // DakeCoin: sub-cent change is moved to fee <coingo.vip>
                 
                 if (nChange > 0 && nChange < MIN_TXOUT_AMOUNT)
                 {
@@ -1324,8 +1324,8 @@ bool CWallet::CreateTransaction(const vector<pair<CScript, int64> >& vecSend,
                     
                     if (newTxOut.IsDust())
                     {
-                       // nFeeRet += nChange;//<coingo.vip>
-                        //reservekey.ReturnKey();
+                        nFeeRet += nChange;
+                        reservekey.ReturnKey();
                     }
                     else
                     {

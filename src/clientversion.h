@@ -9,9 +9,9 @@
 //
 
 // These need to be macros, as version.cpp's and DakeCoin-qt.rc's voodoo requires it
-#define CLIENT_VERSION_MAJOR       4
+#define CLIENT_VERSION_MAJOR       1
 #define CLIENT_VERSION_MINOR       0
-#define CLIENT_VERSION_REVISION    1
+#define CLIENT_VERSION_REVISION    0
 #define CLIENT_VERSION_BUILD       1
 
 // Set to true for release, false for prerelease or test build
@@ -24,9 +24,9 @@
 #endif //HAVE_CONFIG_H
 
 // ppcoin version - intended for display purpose ONLY
-#define DAKECOIN_VERSION_MAJOR       4
+#define DAKECOIN_VERSION_MAJOR       1
 #define DAKECOIN_VERSION_MINOR       0
-#define DAKECOIN_VERSION_REVISION    1
+#define DAKECOIN_VERSION_REVISION    0
 #define DAKECOIN_VERSION_BUILD       1
 //coingo.vip
 

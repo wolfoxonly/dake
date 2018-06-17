@@ -535,7 +535,6 @@ unsigned int GetStakeModifierChecksum(const CBlockIndex* pindex)
 bool CheckStakeModifierCheckpoints(int nHeight, unsigned int nStakeModifierChecksum)
 {
     if (fTestNet) return true; // Testnet has no checkpoints
-  //  printf("nStakeModifierChecksum==%d CheckStakeModifierCheckpoints() mapStakeModifierCheckpoints.count(nHeight) === %d\n",nStakeModifierChecksum, mapStakeModifierCheckpoints.count(nHeight));//coingo.vip 除掉无关打印
     if (mapStakeModifierCheckpoints.count(nHeight))
         return nStakeModifierChecksum == mapStakeModifierCheckpoints[nHeight];
     return true;

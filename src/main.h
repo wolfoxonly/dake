@@ -60,13 +60,13 @@ static const unsigned int UNDOFILE_CHUNK_SIZE = 0x100000; // 1 MiB
 static const unsigned int MEMPOOL_HEIGHT = 0x7FFFFFFF;
 /** No amount larger than this (in satoshi) is valid */
 // static const int64 MAX_MONEY = 2000000000 * COIN;<coingo.vip>
-static const int64 MAX_MONEY = 99999999999 * COIN;
+static const int64 MAX_MONEY = 2100000000 * COIN;//<coingo.vip>
 inline bool MoneyRange(int64 nValue) { return (nValue >= 0 && nValue <= MAX_MONEY); }
-static const int64 MIN_TX_FEE = 0.000005 *COIN;//coingo.vip改最小转账限制
-static const int64 MAX_TX_FEE = 100 *COIN;//coingo.vip改最小转账限制
-static const int64 MIN_RELAY_TX_FEE = 0.000005 *COIN;//改最小限制
-static const int64 MAX_MINT_PROOF_OF_WORK = 9999999999 * COIN;//最大挖到的利息值
-static const int64 MIN_TXOUT_AMOUNT = 0.000005 *COIN;//改最小限制
+static const int64 MIN_TX_FEE = 0 *COIN;//<coingo.vip>改最小转账限制
+static const int64 MAX_TX_FEE = 100 *COIN;//<coingo.vip>改最小转账限制
+static const int64 MIN_RELAY_TX_FEE = 0 *COIN;//<coingo.vip>改最小限制
+static const int64 MAX_MINT_PROOF_OF_WORK = 1200000000 * COIN;//<coingo.vip>最大挖到的利息值
+static const int64 MIN_TXOUT_AMOUNT = 0 *COIN;//<coingo.vip>改最小限制
 /** Coinbase transaction outputs can only be spent after this number of new blocks (network rule) */
 static const int COINBASE_MATURITY_PPC = 500;
 /** Threshold for nLockTime: below this value it is interpreted as block number, otherwise as UNIX timestamp. */
@@ -83,7 +83,7 @@ static const int fHaveUPnP = false;
 #endif
 
 //static const uint256 hashGenesisBlockOfficial("0x0000000032fe677166d54963b62a4677d8957e87c508eaa4fd7eb1c880cd27e3");
-static const uint256 hashGenesisBlockOfficial("0x0000005f968479895971d713694c1986bd02d8467960cbd611774f83b022cf5c");
+static const uint256 hashGenesisBlockOfficial("0x0000005f968479895971d713694c1986bd02d8467960cbd611774f83b022cf5c");//<coingo.vip>
 static const uint256 hashGenesisBlockTestNet("0x00000001f757bb737f6596503e17cd17b0658ce630cc727c0cca81aec47c9f06");
 
 static const int64 nMaxClockDrift = 2 * 60 * 60;        // two hours
